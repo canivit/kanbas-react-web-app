@@ -1,5 +1,5 @@
 {
-  description = "a1";
+  description = "kanbas";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/master";
@@ -12,7 +12,7 @@
     in
     {
       devShell = pkgs.mkShell {
-        name = "a1";
+        name = "kanbas";
         buildInputs = with pkgs; [
           nodejs_18
         ];
