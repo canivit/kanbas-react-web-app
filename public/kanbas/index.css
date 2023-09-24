@@ -1,0 +1,25 @@
+.wd-sidebar {
+  position: absolute;
+  left: 0;
+  background-color: black;
+  width: 85px;
+  font-size: small;
+  color: white;
+}
+
+.wd-sidebar a {
+  color: white;
+}
+
+
+.wd-sidebar i {
+  color: red;
+}
+
+.wd-sidebar-selected {
+  background-color: white;
+}
+
+.wd-sidebar-selected a {
+  color: red;
+}
