@@ -23,3 +23,24 @@
 .wd-sidebar-selected a {
   color: red;
 }
+
+.wd-account-sidebar {
+  position: absolute;
+  left: 85px;
+  top: 85px;
+  width: 150px;
+}
+
+.wd-account-sidebar a {
+  color: red;
+}
+
+.wd-account-sidebar-selected {
+  border-left-color: black;
+  border-left-style: solid;
+  border-left-width: 2px;
+}
+
+.wd-account-sidebar-selected a {
+  color: black;
+}
