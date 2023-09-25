@@ -1,3 +1,18 @@
+.wd-top-bar {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: gray;
+  margin-bottom: 10px;
+}
+
+.wd-content {
+  position: absolute;
+  left: 85px;
+}
+
 .wd-sidebar {
   position: absolute;
   left: 0;
@@ -11,7 +26,6 @@
   color: white;
 }
 
-
 .wd-sidebar i {
   color: red;
 }
@@ -22,13 +36,6 @@
 
 .wd-sidebar-selected a {
   color: red;
-}
-
-.wd-account-sidebar {
-  position: absolute;
-  left: 85px;
-  top: 85px;
-  width: 150px;
 }
 
 .wd-account-sidebar a {
