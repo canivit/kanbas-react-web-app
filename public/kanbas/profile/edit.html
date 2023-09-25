@@ -1,97 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./../index.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./edit.css" />
+
     <meta charset="utf-8" />
-    <title>Edit Profile</title>
+    <title>Kanbas</title>
   </head>
   <body>
-    <table style="width: 100%">
-      <tbody>
-        <tr valign="baseline">
-          <td>
-            <ul>
-              <li><a href="./../account.html">Account</a></li>
-              <li><a href="#">Dashboard</a></li>
-              <li><a href="./../courses.html">Courses</a></li>
-              <li><a href="#">Calendar</a></li>
-              <li><a href="#">Inbox</a></li>
-              <li><a href="#">History</a></li>
-              <li><a href="#">Studio</a></li>
-              <li><a href="#">Commons</a></li>
-              <li><a href="#">Help</a></li>
-            </ul>
-          </td>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center px-0 wd-sidebar">
+          <div class="row py-2 px-2">
+            <div class="col">
+              <a class="text-decoration-none" href="./../index.html">
+                <img class="img-fluid" src="./../assets/northeastern.png" />
+              </a>
+            </div>
+          </div>
 
-          <td>
-            <ul>
-              <li><a href="#">Notifications</a></li>
-              <li><a href="index.html">Profile</a></li>
-              <li><a href="#">Files</a></li>
-              <li><a href="#">Settings</a></li>
-              <li><a href="#">ePortfolios</a></li>
-              <li><a href="#">Shared Content</a></li>
-              <li><a href="#">The Hub</a></li>
-              <li><a href="#">Qwickly Course Tools</a></li>
-              <li><a href="#">Global Announcements</a></li>
-            </ul>
-          </td>
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="./../account.html">
+                <i class="fa-solid fa-user fa-xl"></i>
+                <br />
+                Account
+              </a>
+            </div>
+          </div>
 
-          <td width="70%">
-            <form action="index.html">
-              <h2>Can Ivit</h2>
-              <label for="name">Name:*</label>
-              <input id="name" value="Can Ivit" />
-              <label for="pronouns">Pronouns:*</label>
-              <select id="pronouns">
-                <option>None</option>
-              </select>
-              <br /><br />
-              <label for="title">Title:</label>
-              <input id="title" />
-              <h3>Contact</h3>
-              No registed services, you can add some on the
-              <a href="#">settings</a> page.
-              <h3>Biography</h3>
-              <textarea rows="5" cols="50">Software Engineer</textarea>
-              <h3>Links</h3>
-              <table border="1">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>URL</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Linkedin</td>
-                    <td>
-                      <a href="https://www.linkedin.com/in/canivit/"
-                        >https://www.linkedin.com/in/canivit/</a
-                      >
-                    </td>
-                    <td><button type="button">X</button></td>
-                  </tr>
-                  <tr>
-                    <td>Youtube</td>
-                    <td>
-                      <a href="https://www.youtube.com/c/paulsaladinomd"
-                        >https://www.youtube.com/c/paulsaladinomd</a
-                      >
-                    </td>
-                    <td><button type="button">X</button></td>
-                  </tr>
-                </tbody>
-              </table>
-              <br />
-              <button type="button">Add Another Link</button>
-              <br /><br />
-              <button>Cancel</button>
-              <button>Save Profile</button>
-            </form>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-gauge fa-xl"></i>
+                <br />
+                Dashboard
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-book fa-xl"></i>
+                <br />
+                Courses
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-calendar-days fa-xl"></i>
+                <br />
+                Calendar
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-envelope fa-xl"></i>
+                <br />
+                Inbox
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-clock fa-xl"></i>
+                <br />
+                History
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-video fa-xl"></i>
+                <br />
+                Studio
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+                <br />
+                Commons
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-circle-question fa-xl"></i>
+                <br />
+                Help
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col wd-content">
+          <div class="row wd-top-bar">
+            <div class="col">Can Ivit's Profile</div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 wd-account-sidebar mx-4">
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#"> Notifications </a>
+                </div>
+              </div>
+
+              <div class="row py-2 wd-account-sidebar-selected">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="./index.html">
+                    Profile
+                  </a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#"> Files </a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#"> Settings </a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#"> ePortfolios </a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#"> Shared Content </a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#"> The Hub </a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">
+                    Qwickly Course Tools
+                  </a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">
+                    Global Announcements
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4 wd-profile">
+              <span class="fa-stack fa-6x">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>
+                <i class="fa-regular fa-user fa-stack-1x"></i>
+              </span>
+
+              <form action="./index.html" class="float-end">
+                <button type="submit" class="btn btn-secondary">
+                  <i class="fa-solid fa-pen fa-flip-horizontal"></i>
+                  Cancel Editing
+                </button>
+              </form>
+
+              <div class="container mt-2 mx-4">
+                <form action="./index.html" class="wd-edit-profile-form">
+                  <div class="mb-3">
+                    <label for="nameInput" class="form-label">Name</label>
+                    <input
+                      class="form-control"
+                      id="nameInput"
+                      value="Can Ivit"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="pronounsInput" class="form-label"
+                      >Pronouns</label
+                    >
+                    <select id="pronounsInput" class="form-select">
+                      <option>He/Him/His</option>
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label for="titleInput" class="form-label">Title</label>
+                    <input class="form-control" id="titleInput" />
+                  </div>
+                  <div class="mb-4">
+                    <h4>Contact</h4>
+                    No registed services, you can add some on the
+                    <a href="#">settings</a> page.
+                  </div>
+                  <div class="mb-4">
+                    <h4>Biography</h4>
+                    <textarea class="form-control" id="bioInput" rows="5">
+Software Engineer</textarea
+                    >
+                  </div>
+                  <div class="mb-4">
+                    <h4>Links</h4>
+                    <div class="container">
+                      <div class="row text-center">
+                        <div class="col-5"><b>Title</b></div>
+                        <div class="col-1"></div>
+                        <div class="col-5"><b>URL</b></div>
+                        <div class="col-1"></div>
+                      </div>
+                      <div class="row align-items-center">
+                        <div class="col-5">
+                          <input class="form-control" value="YouTube" />
+                        </div>
+                        <div class="col-1">
+                          <i class="fa-solid fa-right-long"></i>
+                        </div>
+                        <div class="col-5">
+                          <input
+                            class="form-control"
+                            value="https://www.youtube.com/@Paulsaladinomd"
+                          />
+                        </div>
+                        <div class="col-1">
+                          <i class="fa-solid fa-xmark"></i>
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col">
+                          <button type="button" class="btn btn-secondary">
+                            Add Another Link
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="float-end">
+                    <button type="submit" class="btn btn-secondary">
+                      Cancel
+                    </button>
+
+                    <button
+                      type="submit"
+                      class="btn btn-secondary wd-save-profile-button"
+                    >
+                      Save Profile
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
