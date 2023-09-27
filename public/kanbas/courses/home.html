@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./../index.css" />
+
+    <meta charset="utf-8" />
+    <title>Kanbas</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center px-0 wd-sidebar d-none d-xl-block">
+          <div class="row py-2 px-2">
+            <div class="col">
+              <a class="text-decoration-none" href="./../index.html">
+                <img class="img-fluid" src="./../assets/northeastern.png" />
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="./../account/profile/index.html">
+                <i class="fa-solid fa-user fa-xl"></i>
+                <br />
+                Account
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="./../dashboard/index.html">
+                <i class="fa-solid fa-gauge fa-xl"></i>
+                <br />
+                Dashboard
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2 wd-sidebar-selected">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-book fa-xl"></i>
+                <br />
+                Courses
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-calendar-days fa-xl"></i>
+                <br />
+                Calendar
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-envelope fa-xl"></i>
+                <br />
+                Inbox
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-clock fa-xl"></i>
+                <br />
+                History
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-video fa-xl"></i>
+                <br />
+                Studio
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+                <br />
+                Commons
+              </a>
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col">
+              <a class="text-decoration-none" href="#">
+                <i class="fa-solid fa-circle-question fa-xl"></i>
+                <br />
+                Help
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col wd-content">
+          <div class="row wd-top-bar mx-3 align-items-center">
+            <div class="col p-0 m-0">
+              <button
+                class="btn btn-link float-start p-0 m-0"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#kanbasNavigation"
+              >
+                <i class="fa-solid fa-bars fa-2xl wd-link"></i>
+              </button>
+
+              <div
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="kanbasNavigation"
+                aria-labelledby="offcanvasExampleLabel"
+              >
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                    Kanbas Navigation
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <a href="./../dashboard/index.html" class="wd-link">Dashboard</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="./../account/profile/index.html" class="wd-link">Account</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="./home.html" class="wd-link">Courses</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Calendar</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Inbox</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Studio</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Commons</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">History</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Help</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <nav
+                style="--bs-breadcrumb-divider: '>'"
+                class="float-start ms-5"
+              >
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="#" class="wd-link">CS4550.12631.202410</a>
+                  </li>
+                  <li class="breadcrumb-item">Home</li>
+                </ol>
+              </nav>
+
+              <button
+                class="btn btn-link p-0 m-0 float-end"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#courseNavigation"
+              >
+                <i class="fa-solid fa-chevron-down fa-2xl wd-link"></i>
+              </button>
+
+              <div
+                class="offcanvas offcanvas-end"
+                tabindex="-1"
+                id="courseNavigation"
+                aria-labelledby="offcanvasExampleLabel"
+              >
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                    Course Navigation
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Home</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Modules</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Piazza</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Zoom Meetings</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Assignments</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Quizzes</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Grades</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">People</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Panopto Video</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Discussions</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Announcements</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Pages</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Files</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Rubrics</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Outcomes</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Callaborations</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Syllabus</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#" class="wd-link">Settings</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1 wd-account-sidebar mx-4 d-none d-xl-block">
+              <div class="row py-2 wd-account-sidebar-selected">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Home</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Modules</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Piazza</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Zoom Meetings </a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Assignments</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Quizzes</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Grades</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">People</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Panopto Video</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Discussions</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Announcements</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Pages</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Files</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Rubrics</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Outcomes</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Callaborations</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Syllabus</a>
+                </div>
+              </div>
+
+              <div class="row py-2">
+                <div class="col px-1">
+                  <a class="text-decoration-none" href="#">Settings</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-8 col-xl-10">
+              <div class="row">
+                <div class="col mb-2 px-0">
+                  <div class="float-end">
+                    <button type="submit" class="btn wd-button">
+                      Collapse All
+                    </button>
+                    <button type="submit" class="btn wd-button">
+                      View Progess
+                    </button>
+                    <button
+                      class="btn dropdown-toggle wd-button"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-regular fa-circle-check wd-check-icon"></i>
+                      Publish All
+                    </button>
+                    <button type="submit" class="btn wd-button-red">
+                      <i class="fa-solid fa-plus"></i>
+                      Module
+                    </button>
+                    <button type="submit" class="btn wd-button">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                  </div>
+                </div>
+                <hr />
+                <div class="col px-0">
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-secondary">
+                      <b>Week 0 - INTRO</b>
+                    </li>
+                    <li class="list-group-item"><b>LEARNING OBJECTIVES</b></li>
+                    <li class="list-group-item ps-5">
+                      Introduction to the course
+                    </li>
+                    <li class="list-group-item ps-5">
+                      Learn what is Web Development
+                    </li>
+                    <li class="list-group-item ps-5">
+                      Creating a development environment
+                    </li>
+                    <li class="list-group-item ps-5">
+                      Creating a Web Application
+                    </li>
+                    <li class="list-group-item ps-5">
+                      Get started with the 1st assignment
+                    </li>
+                    <li class="list-group-item"><b>READING</b></li>
+                    <li class="list-group-item ps-5">
+                      Full Stack Developer - Chapter 1 - Introduction
+                    </li>
+                    <li class="list-group-item ps-5">
+                      Full Stack Developer - Chapter 2 - Creating User
+                      Interfaces With HTML
+                    </li>
+                    <li class="list-group-item"><b>SLIDES</b></li>
+                    <li class="list-group-item ps-5">
+                      <a class="wd-link" href="#"
+                        >Introduction to Web Development
+                        <i class="fa-solid fa-right-to-bracket ms-2"></i>
+                      </a>
+                    </li>
+                    <li class="list-group-item ps-5">
+                      <a class="wd-link" href="#"
+                        >Creating an HTTP server with Node.js
+                        <i class="fa-solid fa-right-to-bracket ms-2"></i>
+                      </a>
+                    </li>
+                    <li class="list-group-item ps-5">
+                      <a class="wd-link" href="#"
+                        >Creating a React Application
+                        <i class="fa-solid fa-right-to-bracket ms-2"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-2 ms-5 d-none d-xxl-block">
+              <h5>Course Status</h5>
+              <hr />
+              <div class="d-grid">
+                <div class="btn-group">
+                  <button type="button" class="btn wd-button">
+                    <i class="fa-solid fa-ban"></i>
+                    Unpublish
+                  </button>
+                  <button type="button" class="btn wd-button wd-button-green">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Published
+                  </button>
+                </div>
+              </div>
+
+              <div class="d-grid gap-2 mt-4">
+                <button type="button" class="btn wd-button">
+                  <i class="fa-solid fa-file-import"></i>
+                  Import Existing Content
+                </button>
+
+                <button type="button" class="btn wd-button">
+                  <i class="fa-solid fa-file-import"></i>
+                  Import From Commons
+                </button>
+
+                <button type="button" class="btn wd-button">
+                  <i class="fa-solid fa-bullseye"></i>
+                  Choose Homepage
+                </button>
+
+                <button type="button" class="btn wd-button">
+                  <i class="fa-solid fa-chart-simple"></i>
+                  View Course Stream
+                </button>
+
+                <button type="button" class="btn wd-button">
+                  <i class="fa-solid fa-bullhorn"></i>
+                  New Announcement
+                </button>
+
+                <button type="button" class="btn wd-button">
+                  <i class="fa-solid fa-chart-simple"></i>
+                  New Analytics
+                </button>
+
+                <button type="button" class="btn wd-button">
+                  <i class="fa-regular fa-bell"></i>
+                  View Course Notifications
+                </button>
+              </div>
+
+              <h5 class="mt-4">To Do</h5>
+              <hr />
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <a class="wd-link" href="#">A1 - HTML</a>
+                  <button class="float-end btn" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </li>
+                <li class="list-group-item">
+                  <a class="wd-link" href="#">A2 - CSS</a>
+                  <button class="float-end btn" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </li>
+              </ul>
+
+              <h5 class="mt-4">Coming Up</h5>
+              <hr />
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <a class="wd-link" href="#">
+                    <i class="fa-solid fa-calendar-days me-2"></i>
+                    Quiz 1</a
+                  >
+                </li>
+                <li class="list-group-item">
+                  <a class="wd-link" href="#">
+                    <i class="fa-solid fa-calendar-days me-2"></i>
+                    Lecture 5</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

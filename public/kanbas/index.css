@@ -1,16 +1,15 @@
 .wd-top-bar {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  margin: 0;
+  height: 85px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: gray;
-  margin-bottom: 10px;
+  border-bottom-color: lightgray;
+  margin-bottom: 15px;
 }
 
 .wd-content {
   position: absolute;
   left: 85px;
+  width: calc(100% - 85px);
 }
 
 .wd-sidebar {
@@ -50,4 +49,51 @@
 
 .wd-account-sidebar-selected a {
   color: black;
+}
+
+.wd-check-icon {
+  color: green;
+}
+
+.wd-button {
+  color: black;
+  background-color: lightgray;
+  border-color: gray;
+  border-width: 0.5px;
+}
+
+.wd-button:hover {
+  color: black;
+  background-color: gray;
+  border-color: gray;
+  border-width: 0.5px;
+}
+
+.wd-button-red {
+  color: white;
+  background-color: red;
+  border-color: red;
+}
+
+.wd-button-red:hover {
+  color: white;
+  background-color: darkred;
+  border-color: darkred;
+}
+
+.wd-link {
+  text-decoration: none;
+  color: red;
+}
+
+.wd-button-green {
+  color: white;
+  background-color: green;
+  border-color: green;
+}
+
+.wd-button-green:hover {
+  color: white;
+  background-color: darkgreen;
+  border-color: darkgreen;
 }
