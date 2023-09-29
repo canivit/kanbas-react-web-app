@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./../index.css" />
+    <link rel="stylesheet" href="./assignments.css" />
+
+    <meta charset="utf-8" />
+    <title>Kanbas</title>
+  </head>
+  <body>
+    <div class="d-flex flex-row">
+      <div class="text-center wd-sidebar d-none d-xl-block">
+        <div class="row py-2 px-2">
+          <div class="col">
+            <a class="text-decoration-none" href="./../index.html">
+              <img class="img-fluid" src="./../assets/northeastern.png" />
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col">
+            <a
+              class="text-decoration-none"
+              href="./../account/profile/index.html"
+            >
+              <i class="fa-solid fa-user fa-xl"></i>
+              <br />
+              Account
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col">
+            <a class="text-decoration-none" href="./../dashboard/index.html">
+              <i class="fa-solid fa-gauge fa-xl"></i>
+              <br />
+              Dashboard
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2 wd-sidebar-selected">
+          <div class="col">
+            <a class="text-decoration-none" href="./home.html">
+              <i class="fa-solid fa-book fa-xl"></i>
+              <br />
+              Courses
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col">
+            <a class="text-decoration-none" href="#">
+              <i class="fa-solid fa-calendar-days fa-xl"></i>
+              <br />
+              Calendar
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col">
+            <a class="text-decoration-none" href="#">
+              <i class="fa-solid fa-envelope fa-xl"></i>
+              <br />
+              Inbox
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col">
+            <a class="text-decoration-none" href="#">
+              <i class="fa-solid fa-clock fa-xl"></i>
+              <br />
+              History
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col">
+            <a class="text-decoration-none" href="#">
+              <i class="fa-solid fa-video fa-xl"></i>
+              <br />
+              Studio
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col">
+            <a class="text-decoration-none" href="#">
+              <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+              <br />
+              Commons
+            </a>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col">
+            <a class="text-decoration-none" href="#">
+              <i class="fa-solid fa-circle-question fa-xl"></i>
+              <br />
+              Help
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps-4 flex-fill">
+        <div class="row wd-top-bar px-4 align-items-center">
+          <div class="col p-0 m-0">
+            <button
+              class="btn btn-link float-start p-0 m-0"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#kanbasNavigation"
+            >
+              <i class="fa-solid fa-bars fa-2xl wd-link"></i>
+            </button>
+
+            <div
+              class="offcanvas offcanvas-start"
+              tabindex="-1"
+              id="kanbasNavigation"
+              aria-labelledby="offcanvasExampleLabel"
+            >
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                  Kanbas Navigation
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <a href="./../dashboard/index.html" class="wd-link"
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li class="list-group-item">
+                    <a href="./../account/profile/index.html" class="wd-link"
+                      >Account</a
+                    >
+                  </li>
+                  <li class="list-group-item">
+                    <a href="./home.html" class="wd-link">Courses</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Calendar</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Inbox</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Studio</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Commons</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">History</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Help</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <nav style="--bs-breadcrumb-divider: '>'" class="float-start ms-5">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="#" class="wd-link">CS4550.12631.202410</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="#" class="wd-link">Assignments</a>
+                </li>
+                <li class="breadcrumb-item">A1 - ENV + HTML</li>
+              </ol>
+            </nav>
+
+            <button
+              class="btn btn-link p-0 m-0 float-end"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#courseNavigation"
+            >
+              <i class="fa-solid fa-chevron-down fa-2xl wd-link"></i>
+            </button>
+
+            <div
+              class="offcanvas offcanvas-end"
+              tabindex="-1"
+              id="courseNavigation"
+              aria-labelledby="offcanvasExampleLabel"
+            >
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                  Course Navigation
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <a href="./home.html" class="wd-link">Home</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Modules</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Piazza</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Zoom Meetings</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Assignments</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Quizzes</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Grades</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">People</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Panopto Video</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Discussions</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Announcements</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Pages</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Files</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Rubrics</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Outcomes</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Callaborations</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Syllabus</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" class="wd-link">Settings</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-1 wd-account-sidebar mx-4 d-none d-xl-block">
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="./home.html">Home</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Modules</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Piazza</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Zoom Meetings </a>
+              </div>
+            </div>
+
+            <div class="row py-2 wd-account-sidebar-selected">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Assignments</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Quizzes</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Grades</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">People</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Panopto Video</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Discussions</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Announcements</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Pages</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Files</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Rubrics</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Outcomes</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Callaborations</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Syllabus</a>
+              </div>
+            </div>
+
+            <div class="row py-2">
+              <div class="col px-1">
+                <a class="text-decoration-none" href="#">Settings</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-8 mx-5">
+            <div class="row">
+              <div class="mb-2 px-0">
+                <div class="float-end">
+                  <button type="submit" class="btn wd-check-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Published
+                  </button>
+                  <button type="submit" class="btn wd-button">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </button>
+                </div>
+              </div>
+              <hr />
+            </div>
+            <div class="row mb-4">
+              <div class="col px-0">
+                <div class="mb-3">
+                  <label for="assignmentNameInput" class="form-label"
+                    >Assignment Name</label
+                  >
+                  <input
+                    id="assignmentNameInput"
+                    class="form-control mb-4"
+                    value="A1 - ENV + HTML"
+                  />
+                  <textarea class="form-control mb-4" rows="5">
+Description</textarea
+                  >
+
+                  <div class="d-flex flex-column w-75">
+                    <div class="row mb-2">
+                      <div class="col">
+                        <label for="pointsInput" class="form-label"
+                          >Points</label
+                        >
+                      </div>
+                      <div class="col">
+                        <input
+                          id="pointsInput"
+                          class="form-control"
+                          type="number"
+                          min="0"
+                          max="100"
+                          value="100"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <div class="col">
+                        <label for="assignmentGroupInput" class="form-label"
+                          >Assignment Group</label
+                        >
+                      </div>
+                      <div class="col">
+                        <select class="form-select" id="assignmentGroupInput">
+                          <option selected>Assignments</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <div class="col">
+                        <label for="displayGradeAsInput" class="form-label"
+                          >Display Grade As</label
+                        >
+                      </div>
+                      <div class="col">
+                        <select class="form-select" id="displayGradeAsInput">
+                          <option selected>Percentage</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <div class="col"></div>
+                      <div class="col">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="countCheck"
+                          />
+                          <label class="form-check-label" for="countCheck">
+                            Do not count this assignment towards the final grade
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-4">
+                      <div class="col">
+                        <label for="submissionTypeInput" class="form-label"
+                          >Submission Type</label
+                        >
+                      </div>
+                      <div class="col">
+                        <div class="border border-1 rounded p-3">
+                          <select
+                            class="form-select mb-4"
+                            id="submissionTypeInput"
+                          >
+                            <option selected>Percentage</option>
+                          </select>
+
+                          <b class="">Online Entry Options</b>
+
+                          <div class="form-check mt-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="textEntryCheck"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="textEntryCheck"
+                            >
+                              Text Entry
+                            </label>
+                          </div>
+
+                          <div class="form-check mt-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="websiteURLCheck"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="websiteURLCheck"
+                            >
+                              Website URL
+                            </label>
+                          </div>
+
+                          <div class="form-check mt-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="mediaRecordingsCheck"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="mediaRecordingsCheck"
+                            >
+                              Media Recordings
+                            </label>
+                          </div>
+
+                          <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox"
+                            value="" id=studentAnnotationCheck" />
+                            <label
+                              class="form-check-label"
+                              for="studentAnnotationCheck"
+                            >
+                              Student Annotation
+                            </label>
+                          </div>
+
+                          <div class="form-check mt-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              value=""
+                              id="fileUploadsCheck"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="fileUploadsCheck"
+                            >
+                              File Uploads
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <div class="col">
+                        <label for="assignToInput" class="form-label"
+                          >Assign</label
+                        >
+                      </div>
+                      <div class="col">
+                        <div class="border border-1 rounded p-3">
+                          <label for="assignToInput" class="form-label"
+                            ><b>Assign To</b></label
+                          >
+                          <select class="form-select mb-4" id="assignToInput">
+                            <option selected>Everyone</option>
+                          </select>
+
+                          <label for="dueInput" class="form-label"
+                            ><b>Due</b></label
+                          >
+                          <input
+                            type="date"
+                            class="form-control mb-4"
+                            id="dueInput"
+                            value="2023-09-18"
+                          />
+
+                          <div class="row mb-4">
+                            <div class="col">
+                              <label for="fromInput" class="form-label"
+                                ><b>Available From</b></label
+                              >
+                              <input
+                                type="date"
+                                class="form-control"
+                                id="fromInput"
+                                value="2023-09-06"
+                              />
+                            </div>
+
+                            <div class="col">
+                              <label for="untilInput" class="form-label"
+                                ><b>Until</b></label
+                              >
+                              <input
+                                type="date"
+                                class="form-control"
+                                id="untilInput"
+                                value="2023-09-20"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="d-grid">
+                            <button class="btn wd-button">
+                              <i class="fa-solid fa-plus"></i>
+                              Add
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr />
+                  <div>
+                    <div class="form-check float-start">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="notifyCheck"
+                      />
+                      <label class="form-check-label" for="notifyCheck">
+                        Notify users that this content has changed
+                      </label>
+                    </div>
+
+                    <div class="float-end">
+                      <button class="btn wd-button">Cancel</button>
+
+                      <button class="btn wd-button wd-button-red">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
