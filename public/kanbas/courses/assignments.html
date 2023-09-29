@@ -20,6 +20,7 @@
     />
 
     <link rel="stylesheet" href="./../index.css" />
+    <link rel="stylesheet" href="./assignments.css" />
 
     <meta charset="utf-8" />
     <title>Kanbas</title>
@@ -200,7 +201,7 @@
                 <li class="breadcrumb-item">
                   <a href="#" class="wd-link">CS4550.12631.202410</a>
                 </li>
-                <li class="breadcrumb-item">Home</li>
+                <li class="breadcrumb-item">Assignments</li>
               </ol>
             </nav>
 
@@ -233,7 +234,7 @@
               <div class="offcanvas-body">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
-                    <a href="#" class="wd-link">Home</a>
+                    <a href="./home.html" class="wd-link">Home</a>
                   </li>
                   <li class="list-group-item">
                     <a href="#" class="wd-link">Modules</a>
@@ -245,7 +246,7 @@
                     <a href="#" class="wd-link">Zoom Meetings</a>
                   </li>
                   <li class="list-group-item">
-                    <a href="./assignments.html" class="wd-link">Assignments</a>
+                    <a href="#" class="wd-link">Assignments</a>
                   </li>
                   <li class="list-group-item">
                     <a href="#" class="wd-link">Quizzes</a>
@@ -294,9 +295,9 @@
 
         <div class="row">
           <div class="col-1 wd-account-sidebar mx-4 d-none d-xl-block">
-            <div class="row py-2 wd-account-sidebar-selected">
+            <div class="row py-2">
               <div class="col px-1">
-                <a class="text-decoration-none" href="#">Home</a>
+                <a class="text-decoration-none" href="./home.html">Home</a>
               </div>
             </div>
 
@@ -318,11 +319,9 @@
               </div>
             </div>
 
-            <div class="row py-2">
+            <div class="row py-2 wd-account-sidebar-selected">
               <div class="col px-1">
-                <a class="text-decoration-none" href="./assignments.html"
-                  >Assignments</a
-                >
+                <a class="text-decoration-none" href="#">Assignments</a>
               </div>
             </div>
 
@@ -405,28 +404,22 @@
             </div>
           </div>
 
-          <div class="col me-5">
+          <div class="col mx-5">
             <div class="row">
               <div class="col mb-2 px-0">
+                <input
+                  class="form-control float-start w-25"
+                  placeholder="Search for Assignment"
+                />
+
                 <div class="float-end">
                   <button type="submit" class="btn wd-button">
-                    Collapse All
-                  </button>
-                  <button type="submit" class="btn wd-button">
-                    View Progess
-                  </button>
-                  <button
-                    class="btn dropdown-toggle wd-button"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i class="fa-regular fa-circle-check wd-check-icon"></i>
-                    Publish All
+                    <i class="fa-solid fa-plus"></i>
+                    Group
                   </button>
                   <button type="submit" class="btn wd-button-red">
                     <i class="fa-solid fa-plus"></i>
-                    Module
+                    Assignment
                   </button>
                   <button type="submit" class="btn wd-button">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -435,144 +428,144 @@
               </div>
               <hr />
               <div class="col px-0">
-                <ul class="list-group">
+                <ul class="list-group rounded-0">
                   <li class="list-group-item list-group-item-secondary">
-                    <b>Week 0 - INTRO</b>
+                    <div class="d-flex flex-row align-items-center">
+                      <i class="fa-solid fa-sort-down pe-2"></i>
+                      <b class="flex-fill">Assignments</b>
+
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-plus"></i>
+                      </button>
+
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                      </button>
+                    </div>
                   </li>
-                  <li class="list-group-item"><b>LEARNING OBJECTIVES</b></li>
-                  <li class="list-group-item ps-5">
-                    Introduction to the course
+                  <li class="list-group-item wd-assignment-item">
+                    <div class="d-flex flex-row align-items-center">
+                      <i
+                        class="fa-regular fa-xl fa-pen-to-square wd-check-icon ps-3 me-4"
+                      ></i>
+                      <div class="flex-fill">
+                        <a href="#" class="link-dark text-decoration-none"
+                          ><b>A1 - Setup</b></a
+                        >
+                        <p>Due: Sep 18 2022 at 11:59PM | 100 points</p>
+                      </div>
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-circle-check wd-check-icon"></i>
+                      </button>
+
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                      </button>
+                    </div>
                   </li>
-                  <li class="list-group-item ps-5">
-                    Learn what is Web Development
+                  <li class="list-group-item wd-assignment-item">
+                    <div class="d-flex flex-row align-items-center">
+                      <i
+                        class="fa-regular fa-xl fa-pen-to-square wd-check-icon ps-3 me-4"
+                      ></i>
+                      <div class="flex-fill">
+                        <a href="#" class="link-dark text-decoration-none"
+                          ><b>A2 - HTML</b></a
+                        >
+                        <p>Due: Sep 18 2022 at 11:59PM | 100 points</p>
+                      </div>
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-circle-check wd-check-icon"></i>
+                      </button>
+
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                      </button>
+                    </div>
                   </li>
-                  <li class="list-group-item ps-5">
-                    Creating a development environment
+                  <li class="list-group-item wd-assignment-item">
+                    <div class="d-flex flex-row align-items-center">
+                      <i
+                        class="fa-regular fa-xl fa-pen-to-square wd-check-icon ps-3 me-4"
+                      ></i>
+                      <div class="flex-fill">
+                        <a href="#" class="link-dark text-decoration-none"
+                          ><b>A3 - CSS</b></a
+                        >
+                        <p>Due: Sep 18 2022 at 11:59PM | 100 points</p>
+                      </div>
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-circle-check wd-check-icon"></i>
+                      </button>
+
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                      </button>
+                    </div>
                   </li>
-                  <li class="list-group-item ps-5">
-                    Creating a Web Application
+                  <li class="list-group-item wd-assignment-item">
+                    <div class="d-flex flex-row align-items-center">
+                      <i
+                        class="fa-regular fa-xl fa-pen-to-square wd-check-icon ps-3 me-4"
+                      ></i>
+                      <div class="flex-fill">
+                        <a href="#" class="link-dark text-decoration-none"
+                          ><b>A4 - Bootstrap</b></a
+                        >
+                        <p>Due: Sep 18 2022 at 11:59PM | 100 points</p>
+                      </div>
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-circle-check wd-check-icon"></i>
+                      </button>
+
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                      </button>
+                    </div>
                   </li>
-                  <li class="list-group-item ps-5">
-                    Get started with the 1st assignment
+                  <li class="list-group-item wd-assignment-item">
+                    <div class="d-flex flex-row align-items-center">
+                      <i
+                        class="fa-regular fa-xl fa-pen-to-square wd-check-icon ps-3 me-4"
+                      ></i>
+                      <div class="flex-fill">
+                        <a href="#" class="link-dark text-decoration-none"
+                          ><b>A5 - Javascript</b></a
+                        >
+                        <p>Due: Sep 18 2022 at 11:59PM | 100 points</p>
+                      </div>
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-circle-check wd-check-icon"></i>
+                      </button>
+
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                      </button>
+                    </div>
                   </li>
-                  <li class="list-group-item"><b>READING</b></li>
-                  <li class="list-group-item ps-5">
-                    Full Stack Developer - Chapter 1 - Introduction
-                  </li>
-                  <li class="list-group-item ps-5">
-                    Full Stack Developer - Chapter 2 - Creating User Interfaces
-                    With HTML
-                  </li>
-                  <li class="list-group-item"><b>SLIDES</b></li>
-                  <li class="list-group-item ps-5">
-                    <a class="wd-link" href="#"
-                      >Introduction to Web Development
-                      <i class="fa-solid fa-right-to-bracket ms-2"></i>
-                    </a>
-                  </li>
-                  <li class="list-group-item ps-5">
-                    <a class="wd-link" href="#"
-                      >Creating an HTTP server with Node.js
-                      <i class="fa-solid fa-right-to-bracket ms-2"></i>
-                    </a>
-                  </li>
-                  <li class="list-group-item ps-5">
-                    <a class="wd-link" href="#"
-                      >Creating a React Application
-                      <i class="fa-solid fa-right-to-bracket ms-2"></i>
-                    </a>
+                  <li class="list-group-item wd-assignment-item">
+                    <div class="d-flex flex-row align-items-center">
+                      <i
+                        class="fa-regular fa-xl fa-pen-to-square wd-check-icon ps-3 me-4"
+                      ></i>
+                      <div class="flex-fill">
+                        <a href="#" class="link-dark text-decoration-none"
+                          ><b>A6 - React</b></a
+                        >
+                        <p>Due: Sep 18 2022 at 11:59PM | 100 points</p>
+                      </div>
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-circle-check wd-check-icon"></i>
+                      </button>
+
+                      <button class="btn" type="button">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                      </button>
+                    </div>
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
-
-          <div class="col-2 d-none d-xxl-block">
-            <h5>Course Status</h5>
-            <hr />
-            <div class="d-grid">
-              <div class="btn-group">
-                <button type="button" class="btn wd-button">
-                  <i class="fa-solid fa-ban"></i>
-                  Unpublish
-                </button>
-                <button type="button" class="btn wd-button wd-button-green">
-                  <i class="fa-solid fa-circle-check"></i>
-                  Published
-                </button>
-              </div>
-            </div>
-
-            <div class="d-grid gap-2 mt-4">
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-file-import"></i>
-                Import Existing Content
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-file-import"></i>
-                Import From Commons
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-bullseye"></i>
-                Choose Homepage
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-chart-simple"></i>
-                View Course Stream
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-bullhorn"></i>
-                New Announcement
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-chart-simple"></i>
-                New Analytics
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-regular fa-bell"></i>
-                View Course Notifications
-              </button>
-            </div>
-
-            <h5 class="mt-4">To Do</h5>
-            <hr />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <a class="wd-link" href="#">A1 - HTML</a>
-                <button class="float-end btn" type="button">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </li>
-              <li class="list-group-item">
-                <a class="wd-link" href="#">A2 - CSS</a>
-                <button class="float-end btn" type="button">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </li>
-            </ul>
-
-            <h5 class="mt-4">Coming Up</h5>
-            <hr />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <a class="wd-link" href="#">
-                  <i class="fa-solid fa-calendar-days me-2"></i>
-                  Quiz 1</a
-                >
-              </li>
-              <li class="list-group-item">
-                <a class="wd-link" href="#">
-                  <i class="fa-solid fa-calendar-days me-2"></i>
-                  Lecture 5</a
-                >
-              </li>
-            </ul>
           </div>
         </div>
       </div>

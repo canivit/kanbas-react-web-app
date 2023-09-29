@@ -6,15 +6,7 @@
   margin-bottom: 15px;
 }
 
-.wd-content {
-  position: absolute;
-  left: 85px;
-  width: calc(100% - 85px);
-}
-
 .wd-sidebar {
-  position: absolute;
-  left: 0;
   background-color: black;
   width: 85px;
   font-size: small;
