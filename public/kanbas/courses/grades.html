@@ -20,6 +20,8 @@
     />
 
     <link rel="stylesheet" href="./../index.css" />
+    <link rel="stylesheet" href="./assignments.css" />
+    <link rel="stylesheet" href="./grades.css" />
 
     <meta charset="utf-8" />
     <title>Kanbas</title>
@@ -129,7 +131,7 @@
         </div>
       </div>
 
-      <div class="ps-4">
+      <div class="ps-4 flex-fill">
         <div class="row wd-top-bar px-4 align-items-center">
           <div class="col p-0 m-0">
             <button
@@ -200,7 +202,7 @@
                 <li class="breadcrumb-item">
                   <a href="#" class="wd-link">CS4550.12631.202410</a>
                 </li>
-                <li class="breadcrumb-item">Home</li>
+                <li class="breadcrumb-item">Grades</li>
               </ol>
             </nav>
 
@@ -233,7 +235,7 @@
               <div class="offcanvas-body">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
-                    <a href="#" class="wd-link">Home</a>
+                    <a href="./home.html" class="wd-link">Home</a>
                   </li>
                   <li class="list-group-item">
                     <a href="#" class="wd-link">Modules</a>
@@ -294,9 +296,9 @@
 
         <div class="row">
           <div class="col-1 wd-account-sidebar mx-4 d-none d-xl-block">
-            <div class="row py-2 wd-account-sidebar-selected">
+            <div class="row py-2">
               <div class="col px-1">
-                <a class="text-decoration-none" href="#">Home</a>
+                <a class="text-decoration-none" href="./home.html">Home</a>
               </div>
             </div>
 
@@ -332,7 +334,7 @@
               </div>
             </div>
 
-            <div class="row py-2">
+            <div class="row py-2 wd-account-sidebar-selected">
               <div class="col px-1">
                 <a class="text-decoration-none" href="./grades.html">Grades</a>
               </div>
@@ -405,174 +407,149 @@
             </div>
           </div>
 
-          <div class="col me-5">
+          <div class="col-7 mx-5">
             <div class="row">
               <div class="col mb-2 px-0">
                 <div class="float-end">
-                  <button type="submit" class="btn wd-button">
-                    Collapse All
-                  </button>
-                  <button type="submit" class="btn wd-button">
-                    View Progess
+                  <button type="button" class="btn wd-button me-2">
+                    <i class="fa-solid fa-file-import"></i>
+                    <span class="ms-1">Import</span>
                   </button>
                   <button
-                    class="btn dropdown-toggle wd-button"
                     type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+                    class="btn dropdown-toggle wd-button me-2"
                   >
-                    <i class="fa-regular fa-circle-check wd-check-icon"></i>
-                    Publish All
+                    <i class="fa-solid fa-file-import"></i>
+                    <span class="ms-1">Export</span>
                   </button>
-                  <button type="submit" class="btn wd-button-red">
-                    <i class="fa-solid fa-plus"></i>
-                    Module
-                  </button>
-                  <button type="submit" class="btn wd-button">
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  <button type="button" class="btn wd-button">
+                    <i class="fa-solid fa-gear fa-xl"></i>
                   </button>
                 </div>
               </div>
-              <hr />
+            </div>
+            <div class="row mb-4">
               <div class="col px-0">
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-secondary">
-                    <b>Week 0 - INTRO</b>
-                  </li>
-                  <li class="list-group-item"><b>LEARNING OBJECTIVES</b></li>
-                  <li class="list-group-item ps-5">
-                    Introduction to the course
-                  </li>
-                  <li class="list-group-item ps-5">
-                    Learn what is Web Development
-                  </li>
-                  <li class="list-group-item ps-5">
-                    Creating a development environment
-                  </li>
-                  <li class="list-group-item ps-5">
-                    Creating a Web Application
-                  </li>
-                  <li class="list-group-item ps-5">
-                    Get started with the 1st assignment
-                  </li>
-                  <li class="list-group-item"><b>READING</b></li>
-                  <li class="list-group-item ps-5">
-                    Full Stack Developer - Chapter 1 - Introduction
-                  </li>
-                  <li class="list-group-item ps-5">
-                    Full Stack Developer - Chapter 2 - Creating User Interfaces
-                    With HTML
-                  </li>
-                  <li class="list-group-item"><b>SLIDES</b></li>
-                  <li class="list-group-item ps-5">
-                    <a class="wd-link" href="#"
-                      >Introduction to Web Development
-                      <i class="fa-solid fa-right-to-bracket ms-2"></i>
-                    </a>
-                  </li>
-                  <li class="list-group-item ps-5">
-                    <a class="wd-link" href="#"
-                      >Creating an HTTP server with Node.js
-                      <i class="fa-solid fa-right-to-bracket ms-2"></i>
-                    </a>
-                  </li>
-                  <li class="list-group-item ps-5">
-                    <a class="wd-link" href="#"
-                      >Creating a React Application
-                      <i class="fa-solid fa-right-to-bracket ms-2"></i>
-                    </a>
-                  </li>
-                </ul>
+                <div class="row">
+                  <div class="col">
+                    <label for="studentNamesInput" class="form-label">
+                      <b>Student Names</b>
+                    </label>
+                  </div>
+
+                  <div class="col">
+                    <label for="assignmentNamesInput" class="form-label">
+                      <b>Assignment Names</b>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <input
+                      class="form-control"
+                      id="studentNamesInput"
+                      placeholder="Search Students"
+                    />
+                  </div>
+
+                  <div class="col">
+                    <input
+                      class="form-control"
+                      id="assignmentNamesInput"
+                      placeholder="Search Assignments"
+                    />
+                  </div>
+                </div>
+                <button type="button" class="btn wd-button mt-4">
+                  <i class="fa-solid fa-filter"></i>
+                  Apply Filters
+                </button>
+                <div class="table-responsive mt-4">
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr class="align-middle">
+                        <th scope="col">Student Name</th>
+                        <td scope="col" class="text-center">
+                          <p class="my-0">A1 Setup</p>
+                          <p class="wd-small-text my-0">Out of 100</p>
+                        </td>
+                        <td scope="col" class="text-center">
+                          <p class="my-0">A2 HTML</p>
+                          <p class="wd-small-text my-0">Out of 100</p>
+                        </td>
+                        <td scope="col" class="text-center">
+                          <p class="my-0">A3 CSS</p>
+                          <p class="wd-small-text my-0">Out of 100</p>
+                        </td>
+                        <td scope="col" class="text-center">
+                          <p class="my-0">A4 BOOTSTRAP</p>
+                          <p class="wd-small-text my-0">Out of 100</p>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><p class="wd-name my-0">Sauron</p></td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                      </tr>
+                      <tr>
+                        <td><p class="wd-name my-0">Aragorn</p></td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">
+                          <input
+                            type="number"
+                            class="form-control text-center"
+                            min="0"
+                            max="100"
+                            value="98"
+                          />
+                        </td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                      </tr>
+                      <tr>
+                        <td><p class="wd-name my-0">Gandalf</p></td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                      </tr>
+                      <tr>
+                        <td><p class="wd-name my-0">Saruman</p></td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                      </tr>
+                      <tr>
+                        <td><p class="wd-name my-0">Legolas</p></td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                      </tr>
+                      <tr>
+                        <td><p class="wd-name my-0">Frodo</p></td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                      </tr>
+                      <tr>
+                        <td><p class="wd-name my-0">Sam</p></td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">100</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-2 d-none d-xxl-block">
-            <h5>Course Status</h5>
-            <hr />
-            <div class="d-grid">
-              <div class="btn-group">
-                <button type="button" class="btn wd-button">
-                  <i class="fa-solid fa-ban"></i>
-                  Unpublish
-                </button>
-                <button type="button" class="btn wd-button wd-button-green">
-                  <i class="fa-solid fa-circle-check"></i>
-                  Published
-                </button>
-              </div>
-            </div>
-
-            <div class="d-grid gap-2 mt-4">
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-file-import"></i>
-                Import Existing Content
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-file-import"></i>
-                Import From Commons
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-bullseye"></i>
-                Choose Homepage
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-chart-simple"></i>
-                View Course Stream
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-bullhorn"></i>
-                New Announcement
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-solid fa-chart-simple"></i>
-                New Analytics
-              </button>
-
-              <button type="button" class="btn wd-button">
-                <i class="fa-regular fa-bell"></i>
-                View Course Notifications
-              </button>
-            </div>
-
-            <h5 class="mt-4">To Do</h5>
-            <hr />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <a class="wd-link" href="#">A1 - HTML</a>
-                <button class="float-end btn" type="button">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </li>
-              <li class="list-group-item">
-                <a class="wd-link" href="#">A2 - CSS</a>
-                <button class="float-end btn" type="button">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </li>
-            </ul>
-
-            <h5 class="mt-4">Coming Up</h5>
-            <hr />
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <a class="wd-link" href="#">
-                  <i class="fa-solid fa-calendar-days me-2"></i>
-                  Quiz 1</a
-                >
-              </li>
-              <li class="list-group-item">
-                <a class="wd-link" href="#">
-                  <i class="fa-solid fa-calendar-days me-2"></i>
-                  Lecture 5</a
-                >
-              </li>
-            </ul>
           </div>
         </div>
       </div>
