@@ -1,6 +1,7 @@
 .wd-kanbas-navigation {
   background-color: black;
-  width: 85px;
+  min-width: 85px;
+  max-width: 85px;
   font-size: small;
   color: white;
   text-align: center;

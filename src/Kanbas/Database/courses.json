@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "CS4550",
+    "description": "Web Development",
+    "startDate": "2018-09-01",
+    "endDate": "2018-12-31"
+  },
+  {
+    "id": 2,
+    "name": "CS4500",
+    "description": "Software Development",
+    "startDate": "2018-09-01",
+    "endDate": "2018-12-31"
+  },
+  {
+    "id": 3,
+    "name": "CS2800",
+    "description": "Logic and Computation",
+    "startDate": "2018-09-01",
+    "endDate": "2018-12-31"
+  },
+  {
+    "id": 4,
+    "name": "CS3500",
+    "description": "Object Oriented Design",
+    "startDate": "2018-09-01",
+    "endDate": "2018-12-31"
+  },
+  {
+    "id": 5,
+    "name": "CS3000",
+    "description": "Algorithms",
+    "startDate": "2018-09-01",
+    "endDate": "2018-12-31"
+  },
+  {
+    "id": 6,
+    "name": "CS3700",
+    "description": "Networks",
+    "startDate": "2018-09-01",
+    "endDate": "2018-12-31"
+  },
+  {
+    "id": 7,
+    "name": "CS3650",
+    "description": "Systems",
+    "startDate": "2018-09-01",
+    "endDate": "2018-12-31"
+  }
+]
