@@ -3,7 +3,7 @@ import { db } from "../Database";
 
 export function Dashboard() {
   return (
-    <div className="ps-4">
+    <div className="ps-4 pt-4">
       <TitleBar />
       <SubtitleBar numOfCourses={db.courses.length} />
       <CourseList />
