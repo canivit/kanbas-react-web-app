@@ -1,0 +1,17 @@
+.wd-kanbas-navigation {
+  background-color: black;
+  width: 85px;
+  font-size: small;
+  color: white;
+  text-align: center;
+}
+
+.wd-kanbas-navigation-item {
+  color: white;
+}
+
+.wd-kanbas-navigation-item-active {
+  color: red;
+  background-color: white;
+}
+
