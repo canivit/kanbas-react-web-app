@@ -1,8 +1,8 @@
-import { useParams } from "react-router";
+import { Navigate, Route, Routes, useParams } from "react-router";
 import { db } from "../Database";
-import { parse } from "path";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { CourseNavigation, courseNavigationItems } from "./CourseNavigation";
 
 export function Courses() {
   const params = useParams();
@@ -17,8 +17,28 @@ export function Courses() {
       <h3 style={{ color: "red" }}>
         <FontAwesomeIcon icon={faBars} className="me-4" />
         {title}
+        <FontAwesomeIcon icon={faChevronRight} className="mx-3" />
+        <CourseNavigationRoutes />
       </h3>
       <hr />
+      <div className="d-flex">
+        <CourseNavigation />
+      </div>
     </div>
+  );
+}
+
+function CourseNavigationRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate to="Home" />} />
+      {courseNavigationItems.map((item) => (
+        <Route
+          key={item.text}
+          path={item.route}
+          element={<span style={{ color: "black" }}>{item.text}</span>}
+        />
+      ))}
+    </Routes>
   );
 }
