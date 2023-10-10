@@ -10,10 +10,10 @@ export function CourseCard(course: Course) {
       <div className="card-img-top wd-course-card-image"></div>
       <div className="card-body">
         <Link
-          to={`/Kanbas/Courses/${course.id}`}
+          to={`/Kanbas/Courses/${course._id}`}
           className="text-decoration-none"
         >
-          <h5 className="card-title">{`${course.name} ${course.description}`}</h5>
+          <h5 className="card-title">{`${course.number} ${course.name}`}</h5>
         </Link>
         <p className="card-text mb-0">{`Start: ${course.startDate}`}</p>
         <p className="card-text">{`End: ${course.endDate}`}</p>

@@ -33,7 +33,7 @@ function CourseList() {
   return (
     <div className="d-flex flex-row flex-wrap ps-2">
       {db.courses.map((course) => (
-        <CourseCard {...course} key={course.id}/>
+        <CourseCard {...course} key={course._id}/>
       ))}
     </div>
   );

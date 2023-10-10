@@ -7,9 +7,9 @@ import { CourseNavigation, courseNavigationItems } from "./CourseNavigation";
 export function Courses() {
   const params = useParams();
   const courseId = parseInt(params.courseId ? params.courseId : "");
-  const course = db.courses.find((course) => course.id === courseId);
+  const course = db.courses.find((course) => course._id === courseId);
   const title = course
-    ? `${course.name} ${course.description}`
+    ? `${course.number} ${course.name}`
     : "Invalid Course Id";
 
   return (
