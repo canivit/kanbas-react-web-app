@@ -3,6 +3,7 @@ import { db } from "../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { CourseNavigation, courseNavigationItems } from "./CourseNavigation";
+import { Modules } from "./Modules";
 
 export function Courses() {
   const params = useParams();
@@ -21,8 +22,16 @@ export function Courses() {
         <CourseNavigationRoutes />
       </h3>
       <hr />
-      <div className="d-flex">
-        <CourseNavigation />
+      <div className="row">
+        <div className="col-1">
+          <CourseNavigation />
+        </div>
+        <div className="col-1"></div>
+        <div className="col-6">
+          <Routes>
+            <Route path="Modules" element={<Modules />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );

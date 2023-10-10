@@ -1,0 +1,19 @@
+.wd-button {
+  color: black !important;
+  background-color: lightgray !important;
+  border-color: gray !important;
+  border-width: 0.5px !important;
+}
+
+.wd-button:hover {
+  color: black !important;
+  background-color: gray !important;
+  border-color: gray !important;
+  border-width: 0.5px !important;
+}
+
+.wd-button-red {
+  color: white !important;
+  background-color: red !important;
+  border-color: red !important;
+}
