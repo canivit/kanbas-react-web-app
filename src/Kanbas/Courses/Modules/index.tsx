@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ModuleList } from "./ModuleList";
 import {
-  faCircleCheck,
   faEllipsisVertical,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 export function Modules() {
   return (
