@@ -17,3 +17,20 @@
   background-color: red !important;
   border-color: red !important;
 }
+
+.wd-link {
+  text-decoration: none;
+  color: red;
+}
+
+.wd-button-green {
+  color: white !important;
+  background-color: green !important;
+  border-color: green !important;
+}
+
+.wd-button-green:hover {
+  color: white !important;
+  background-color: darkgreen !important;
+  border-color: darkgreen !important;
+}

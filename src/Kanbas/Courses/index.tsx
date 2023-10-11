@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { CourseNavigation, courseNavigationItems } from "./CourseNavigation";
 import { Modules } from "./Modules";
+import { Home } from "./Home";
 
 export function Courses() {
   const params = useParams();
@@ -27,11 +28,24 @@ export function Courses() {
           <CourseNavigation />
         </div>
         <div className="col-1"></div>
-        <div className="col-6">
-          <Routes>
-            <Route path="Modules" element={<Modules />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route
+            path="Modules"
+            element={
+              <div className="col-8">
+                <Modules />
+              </div>
+            }
+          />
+          <Route
+            path="Home"
+            element={
+              <div className="col">
+                <Home />
+              </div>
+            }
+          />
+        </Routes>
       </div>
     </div>
   );
