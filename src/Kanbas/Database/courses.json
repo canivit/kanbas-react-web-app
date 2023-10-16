@@ -15,22 +15,22 @@
   },
   {
     "_id": 3,
+    "number": "CS3000",
+    "name": "Algorithms",
+    "startDate": "2018-09-01",
+    "endDate": "2018-12-31"
+  },
+  {
+    "_id": 4,
     "number": "CS2800",
     "name": "Logic and Computation",
     "startDate": "2018-09-01",
     "endDate": "2018-12-31"
   },
   {
-    "_id": 4,
+    "_id": 5,
     "number": "CS3500",
     "name": "Object Oriented Design",
-    "startDate": "2018-09-01",
-    "endDate": "2018-12-31"
-  },
-  {
-    "_id": 5,
-    "number": "CS3000",
-    "name": "Algorithms",
     "startDate": "2018-09-01",
     "endDate": "2018-12-31"
   },

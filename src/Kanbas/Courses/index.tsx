@@ -5,6 +5,7 @@ import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { CourseNavigation, courseNavigationItems } from "./CourseNavigation";
 import { Modules } from "./Modules";
 import { Home } from "./Home";
+import { Assignments } from "./Assignments";
 
 export function Courses() {
   const params = useParams();
@@ -42,6 +43,14 @@ export function Courses() {
             element={
               <div className="col">
                 <Home />
+              </div>
+            }
+          />
+          <Route
+            path="Assignments"
+            element={
+              <div className="col-8">
+                <Assignments />
               </div>
             }
           />

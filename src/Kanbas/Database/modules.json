@@ -34,5 +34,23 @@
     "name": "Software Arhitetures",
     "description": "How to choose the right software architecture",
     "course": 2
+  },
+  {
+    "_id": 7,
+    "name": "Divide and Conquer",
+    "description": "Divide and Conquer Algorithms",
+    "course": 3
+  },
+  {
+    "_id": 8,
+    "name": "Dynamic Programming",
+    "description": "Reduce runtime by memoization",
+    "course": 3
+  },
+  {
+    "_id": 9,
+    "name": "Graphs",
+    "description": "Graph Algorithms",
+    "course": 3
   }
 ]
