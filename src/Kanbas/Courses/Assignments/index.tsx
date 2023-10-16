@@ -72,7 +72,7 @@ function AssignmentList({ assignments }: { assignments: Assignment[] }) {
         </div>
       </li>
       {assignments.map((assignment) => (
-        <AssignmentItem assignment={assignment} />
+        <AssignmentItem assignment={assignment} key={assignment._id}/>
       ))}
     </ul>
   );
