@@ -7,6 +7,7 @@ import { Modules } from "./Modules";
 import { Home } from "./Home";
 import { Assignments } from "./Assignments";
 import { AssignmentEditor } from "./Assignments/AssignmentEditor";
+import { Grades } from "./Grades";
 
 export function Courses() {
   const params = useParams();
@@ -60,6 +61,14 @@ export function Courses() {
             element={
               <div className="col-8">
                 <AssignmentEditor />
+              </div>
+            }
+          />
+          <Route
+            path="Grades"
+            element={
+              <div className="col-8">
+                <Grades />
               </div>
             }
           />
