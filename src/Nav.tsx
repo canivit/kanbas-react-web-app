@@ -1,4 +1,3 @@
-import path from "path";
 import { Link, useLocation } from "react-router-dom";
 
 function Nav() {
@@ -8,6 +7,9 @@ function Nav() {
     <nav className="nav nav-tabs mt-2">
       <Link className={`nav-link ${activeClass("a3")}`} to="/Labs/a3">
         A3
+      </Link>
+      <Link className={`nav-link ${activeClass("a4")}`} to="/Labs/a4">
+        A4
       </Link>
       <Link className={`nav-link ${activeClass("hello")}`} to="/hello">
         Hello
