@@ -5,13 +5,15 @@ import { Courses } from "./Courses";
 import "./index.css";
 import { Course, db } from "./Database";
 import { useState } from "react";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 export function Kanbas() {
   const [courses, setCourses] = useState(db.courses);
   const [course, setCourse] = useState(defaultCourse);
 
   function addCourse(course: Course) {
-    const newCourses = [...courses, course];
+    const newCourses = [...courses, { ...course, _id: new Date().getTime() }];
     setCourses(newCourses);
   }
 
@@ -26,33 +28,35 @@ export function Kanbas() {
   }
 
   return (
-    <div className="d-flex mt-4">
-      <KanbasNavigation />
-      <div className="flex-fill">
-        <Routes>
-          <Route path="/" element={<Navigate to="Dashboard" />} />
-          <Route path="Account" element={<h1>Account</h1>} />
-          <Route
-            path="Dashboard"
-            element={
-              <Dashboard
-                courses={courses}
-                course={course}
-                setCourse={setCourse}
-                addCourse={addCourse}
-                updateCourse={updateCourse}
-                deleteCourse={deleteCourse}
-                defaultCourse={defaultCourse}
-              />
-            }
-          />
-          <Route
-            path="Courses/:courseId/*"
-            element={<Courses courses={courses} />}
-          />
-        </Routes>
+    <Provider store={store}>
+      <div className="d-flex mt-4">
+        <KanbasNavigation />
+        <div className="flex-fill">
+          <Routes>
+            <Route path="/" element={<Navigate to="Dashboard" />} />
+            <Route path="Account" element={<h1>Account</h1>} />
+            <Route
+              path="Dashboard"
+              element={
+                <Dashboard
+                  courses={courses}
+                  course={course}
+                  setCourse={setCourse}
+                  addCourse={addCourse}
+                  updateCourse={updateCourse}
+                  deleteCourse={deleteCourse}
+                  defaultCourse={defaultCourse}
+                />
+              }
+            />
+            <Route
+              path="Courses/:courseId/*"
+              element={<Courses courses={courses} />}
+            />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 

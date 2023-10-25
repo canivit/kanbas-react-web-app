@@ -1,16 +1,55 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ModuleList } from "./ModuleList";
-import {
-  faEllipsisVertical,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisVertical, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import { ModuleForm, SubmitMode } from "./ModuleForm";
+import { Module } from "../../Database";
+import { useDispatch } from "react-redux";
+import {
+  addModule,
+  defaultModule,
+  setModule,
+  updateModule,
+} from "./modulesReducer";
+import { useState } from "react";
 
 export function Modules() {
+  const dispatch = useDispatch();
+  const [submitMode, setSubmitMode] = useState<SubmitMode>("add");
+
+  function submitHandler(module: Module, submitMode: SubmitMode) {
+    switch (submitMode) {
+      case "add":
+        dispatch(addModule(module));
+        break;
+      case "update":
+        dispatch(updateModule(module));
+        break;
+    }
+
+    dispatch(setModule(defaultModule()));
+    setSubmitMode("add");
+  }
+
+  function cancelHandler() {
+    dispatch(setModule(defaultModule()));
+    setSubmitMode("add");
+  }
+
+  function editModuleHandler(module: Module) {
+    dispatch(setModule(module));
+    setSubmitMode("update");
+  }
+
   return (
     <div>
       <TitleBar />
-      <ModuleList />
+      <ModuleForm
+        submitMode={submitMode}
+        submitHandler={submitHandler}
+        cancelHandler={cancelHandler}
+      />
+      <ModuleList editModuleHandler={editModuleHandler} />
     </div>
   );
 }
@@ -43,7 +82,7 @@ function TitleBar() {
           Module
         </button>
         <button type="submit" className="btn wd-button ms-2">
-          <FontAwesomeIcon icon={faEllipsisVertical}/>
+          <FontAwesomeIcon icon={faEllipsisVertical} />
         </button>
       </div>
       <hr />
