@@ -1,10 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Course } from "../Database";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import "./CourseCard.css";
 import { Link } from "react-router-dom";
 
-export function CourseCard(course: Course) {
+export function CourseCard({
+  course,
+  editCourseHandler,
+  deleteCourseHandler,
+}: {
+  course: Course;
+  editCourseHandler: (course: Course) => void;
+  deleteCourseHandler: (courseId: number) => void;
+}) {
   return (
     <div className="card wd-course-card">
       <div className="card-img-top wd-course-card-image"></div>
@@ -17,7 +25,19 @@ export function CourseCard(course: Course) {
         </Link>
         <p className="card-text mb-0">{`Start: ${course.startDate}`}</p>
         <p className="card-text">{`End: ${course.endDate}`}</p>
-        <FontAwesomeIcon icon={faPenToSquare} size="xl" />
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          size="xl"
+          onClick={() => editCourseHandler(course)}
+          style={{ cursor: "pointer" }}
+          className="me-4"
+        />
+        <FontAwesomeIcon
+          icon={faTrashCan}
+          size="xl"
+          onClick={() => deleteCourseHandler(course._id)}
+          style={{ cursor: "pointer" }}
+        />
       </div>
     </div>
   );
