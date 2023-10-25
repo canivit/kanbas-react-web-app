@@ -1,27 +1,26 @@
-import { Course, db } from "../Database";
+import { Course } from "../Database";
 import { CourseForm, SubmitMode } from "./CourseForm";
 import { useState } from "react";
 import { CourseList } from "./CourseList";
 
-export function Dashboard() {
-  const [courses, setCourses] = useState(db.courses);
-  const [course, setCourse] = useState(defaultCourse);
+export function Dashboard({
+  courses,
+  course,
+  setCourse,
+  addCourse,
+  updateCourse,
+  deleteCourse,
+  defaultCourse,
+}: {
+  courses: Course[];
+  course: Course;
+  setCourse: (course: Course | (() => Course)) => void;
+  addCourse: (course: Course) => void;
+  updateCourse: (course: Course) => void;
+  deleteCourse: (courseId: number) => void;
+  defaultCourse: () => Course;
+}) {
   const [submitMode, setSubmitMode] = useState<SubmitMode>("add");
-
-  function addCourse(course: Course) {
-    const newCourses = [...courses, course];
-    setCourses(newCourses);
-  }
-
-  function updateCourse(course: Course) {
-    const newCourses = courses.map((c) => (c._id === course._id ? course : c));
-    setCourses(newCourses);
-  }
-
-  function deleteCourse(courseId: number) {
-    const newCourses = courses.filter((c) => c._id !== courseId);
-    setCourses(newCourses);
-  }
 
   function cancelHandler() {
     setCourse(defaultCourse);
@@ -84,16 +83,4 @@ function SubtitleBar({ numOfCourses }: { numOfCourses: number }) {
       <hr />
     </div>
   );
-}
-
-function defaultCourse(): Course {
-  const today = new Date().toISOString().split("T")[0];
-
-  return {
-    _id: new Date().getTime(),
-    name: "",
-    number: "",
-    startDate: today,
-    endDate: today,
-  };
 }

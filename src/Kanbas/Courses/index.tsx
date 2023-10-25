@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes, useParams } from "react-router";
-import { db } from "../Database";
+import { Course } from "../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { CourseNavigation, courseNavigationItems } from "./CourseNavigation";
@@ -9,10 +9,10 @@ import { Assignments } from "./Assignments";
 import { AssignmentEditor } from "./Assignments/AssignmentEditor";
 import { Grades } from "./Grades";
 
-export function Courses() {
+export function Courses({ courses }: { courses: Course[] }) {
   const params = useParams();
   const courseId = parseInt(params.courseId ? params.courseId : "");
-  const course = db.courses.find((course) => course._id === courseId);
+  const course = courses.find((course) => course._id === courseId);
   const title = course
     ? `${course.number} ${course.name}`
     : "Invalid Course Id";
