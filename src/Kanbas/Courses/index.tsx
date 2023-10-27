@@ -6,8 +6,9 @@ import { CourseNavigation, courseNavigationItems } from "./CourseNavigation";
 import { Modules } from "./Modules";
 import { Home } from "./Home";
 import { Assignments } from "./Assignments";
-import { AssignmentEditor } from "./Assignments/AssignmentEditor";
 import { Grades } from "./Grades";
+import { UpdateAssignment } from "./Assignments/UpdateAssignment";
+import { CreateAssignment } from "./Assignments/CreateAssignment";
 
 export function Courses({ courses }: { courses: Course[] }) {
   const params = useParams();
@@ -60,7 +61,15 @@ export function Courses({ courses }: { courses: Course[] }) {
             path="Assignments/:assignmentId"
             element={
               <div className="col-8">
-                <AssignmentEditor />
+                <UpdateAssignment courseId={courseId} />
+              </div>
+            }
+          />
+          <Route
+            path="CreateAssignment"
+            element={
+              <div className="col-8">
+                <CreateAssignment courseId={courseId} />
               </div>
             }
           />

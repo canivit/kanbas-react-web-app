@@ -1,29 +1,31 @@
-import { NavigateFunction, useNavigate, useParams } from "react-router";
-import { Assignment, db } from "../../Database";
+import { Assignment } from "../../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
   faEllipsisVertical,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
-export function AssignmentEditor() {
-  const params = useParams();
-  const assignmentId = parseInt(params.assignmentId ? params.assignmentId : "");
-  const assignment = db.assignments.find(
-    (assignment) => assignment._id === assignmentId
-  );
+export function AssignmentEditor({
+  assignment,
+  onSaveHandler,
+  onCancelHandler,
+}: {
+  assignment: Assignment;
+  onSaveHandler: (assignment: Assignment) => void;
+  onCancelHandler: () => void;
+}) {
+  const [currentAssignment, setAssignment] = useState(assignment);
 
   return (
     <>
-      {assignment ? (
-        <>
-          <TopBar />
-          <AssignmentEditForm assignment={assignment} />
-        </>
-      ) : (
-        <h2>Assignment Not Found</h2>
-      )}
+      <TopBar />
+      <AssignmentEditForm
+        assignment={currentAssignment}
+        onChangeHandler={setAssignment}
+        onSaveHandler={onSaveHandler}
+        onCancelHandler={onCancelHandler}
+      />
     </>
   );
 }
@@ -47,12 +49,27 @@ function TopBar() {
   );
 }
 
-function AssignmentEditForm({ assignment }: { assignment: Assignment }) {
-  const navigate = useNavigate();
+function AssignmentEditForm({
+  assignment,
+  onChangeHandler,
+  onSaveHandler,
+  onCancelHandler,
+}: {
+  assignment: Assignment;
+  onChangeHandler: (assignment: Assignment) => void;
+  onSaveHandler: (assignment: Assignment) => void;
+  onCancelHandler: () => void;
+}) {
   return (
     <>
       <label className="form-label">Assignment Name</label>
-      <input className="form-control" defaultValue={assignment.title} />
+      <input
+        className="form-control"
+        defaultValue={assignment.title}
+        onChange={(e) =>
+          onChangeHandler({ ...assignment, title: e.target.value })
+        }
+      />
       <hr />
       <div className="d-flex justify-content-between align-items-center">
         <div className="form-check">
@@ -67,15 +84,12 @@ function AssignmentEditForm({ assignment }: { assignment: Assignment }) {
           </label>
         </div>
 
-        <form className="d-flex gap-2" action="./assignments.html">
-          <Link
-            to={`/Kanbas/Courses/${assignment.course}/Assignments`}
-            className="btn wd-button"
-          >
+        <form className="d-flex gap-2">
+          <button onClick={onCancelHandler} className="btn wd-button">
             Cancel
-          </Link>
+          </button>
           <button
-            onClick={handleSave(assignment.course, navigate)}
+            onClick={() => onSaveHandler(assignment)}
             className="btn wd-button wd-button-red"
           >
             Save
@@ -84,11 +98,4 @@ function AssignmentEditForm({ assignment }: { assignment: Assignment }) {
       </div>
     </>
   );
-
-  function handleSave(courseId: number, navigate: NavigateFunction) {
-    return () => {
-      console.log("Saving assignment");
-      navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    };
-  }
 }
