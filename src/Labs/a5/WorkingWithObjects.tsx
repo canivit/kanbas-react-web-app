@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export function WorkingWithObjects() {
   const baseUrl = "http://localhost:4000/a5";
@@ -10,6 +11,22 @@ export function WorkingWithObjects() {
     completed: false,
     score: 100,
   });
+
+  const URL = "http://localhost:4000/a5/assignment";
+
+  const fetchAssignment = async () => {
+    const response = await axios.get(`${URL}`);
+    setAssignment(response.data);
+  };
+
+  const updateTitle = async () => {
+    const response = await axios.get(`${URL}/title/${assignment.title}`);
+    setAssignment(response.data);
+  };
+
+  useEffect(() => {
+    fetchAssignment();
+  }, []);
 
   return (
     <div>
@@ -26,6 +43,14 @@ export function WorkingWithObjects() {
       </a>
 
       <h4>Modifying Properties</h4>
+
+      <button onClick={updateTitle} className="w-100 btn btn-primary mb-2">
+        Update Title to: {assignment.title}
+      </button>
+      <button onClick={fetchAssignment} className="w-100 btn btn-danger mb-2">
+        Fetch Assignment
+      </button>
+
       <a
         href={`${baseUrl}/assignment/title/${assignment.title}`}
         className="btn btn-primary me-2 float-end"
@@ -63,7 +88,9 @@ export function WorkingWithObjects() {
         Update Completed
       </a>
       <input
-      onChange={(e) => setAssignment({ ...assignment, completed: e.target.checked })}
+        onChange={(e) =>
+          setAssignment({ ...assignment, completed: e.target.checked })
+        }
         className="form-check-input"
         type="checkbox"
         checked={assignment.completed}

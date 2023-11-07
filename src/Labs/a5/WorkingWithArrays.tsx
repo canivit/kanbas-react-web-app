@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios, { AxiosError } from "axios";
+import { useEffect, useState } from "react";
 
 export function WorkingWithArrays() {
   const baseUrl = "http://localhost:4000/a5/todos";
@@ -9,38 +10,66 @@ export function WorkingWithArrays() {
     due: "2021-09-09",
     completed: false,
   });
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [errorMessage, setErrorMessage] = useState<string | false>(false);
+
+  const fetchTodos = async () => {
+    const response = await axios.get(baseUrl);
+    setTodos(response.data);
+  };
+
+  const deleteTodo = async (todoId: number) => {
+    try {
+      await axios.delete(`${baseUrl}/${todoId}`);
+      const newTodos = todos.filter((t) => t.id !== todoId);
+      setTodos(newTodos);
+    } catch (error: unknown) {
+      handleError(error);
+    }
+  };
+
+  const createTodo = async () => {
+    const response = await axios.post(baseUrl, todo);
+    setTodos([...todos, response.data]);
+  };
+
+  const fetchTodoById = async (id: number) => {
+    const response = await axios.get(`${baseUrl}/${id}`);
+    setTodo(response.data);
+  };
+
+  const updateTodo = async () => {
+    try {
+      await axios.put(`${baseUrl}/${todo.id}`, todo);
+      setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));
+      setTodo({
+        id: 0,
+        title: "",
+        description: "",
+        due: "",
+        completed: false,
+      });
+    } catch (error: unknown) {
+      handleError(error);
+    }
+  };
+
+  function handleError(error: unknown) {
+    if (error instanceof AxiosError) {
+      setErrorMessage(error.response?.data?.message);
+    }
+  }
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
 
   return (
     <div>
       <h3>Working with Arrays</h3>
-
-      <h4>Retrieving Arrays</h4>
-      <a href={baseUrl} className="btn btn-primary me-2">
-        Get Todos
-      </a>
-
-      <h4>Retrieving an Item from an Array by ID</h4>
-      <input
-        type="number"
-        className="form-control"
-        value={todo.id}
-        onChange={(e) => setTodo({ ...todo, id: e.target.valueAsNumber })}
-      />
-      <a href={`${baseUrl}/${todo.id}`} className="btn btn-primary me-2">
-        Get Todo by ID
-      </a>
-
-      <h4>Filtering Array Items</h4>
-      <a href={`${baseUrl}?completed=true`} className="btn btn-primary me-2">
-        Get Completed Todos
-      </a>
-
-      <h4>Creating new Items in an Array</h4>
-      <a href={`${baseUrl}/create`} className="btn btn-primary me-2 mb-2">
-        Create Todo
-      </a>
-
-      <h4>Deleting from an Array</h4>
+      {errorMessage && (
+        <div className="alert alert-danger mb-2 mt-2">{errorMessage}</div>
+      )}
       <input
         value={todo.id}
         onChange={(e) =>
@@ -51,12 +80,8 @@ export function WorkingWithArrays() {
         }
         className="form-control mb-2"
         type="number"
+        readOnly
       />
-      <a href={`${baseUrl}/${todo.id}/delete`} className="btn btn-primary me-2">
-        Delete Todo with ID = {todo.id}
-      </a>
-
-      <h3>Updating an Item in an Array</h3>
       <input
         value={todo.title}
         onChange={(e) =>
@@ -68,48 +93,77 @@ export function WorkingWithArrays() {
         className="form-control mb-2"
         type="text"
       />
-      <a
-        href={`${baseUrl}/${todo.id}/title/${todo.title}`}
-        className="btn btn-primary me-2 mb-4"
-      >
-        Update Title to {todo.title}
-      </a>
-      <br />
-      <input
-        onChange={(e) => setTodo({ ...todo, completed: e.target.checked })}
-        className="form-check-input me-1"
-        type="checkbox"
-        checked={todo.completed}
-        id="completedTodoCheckbox"
-      />
-      <label className="form-check-label" htmlFor="completedTodoCheckbox">
-        Completed
-      </label>
-      <br />
-      <a
-        href={`${baseUrl}/${todo.id}/completed/${todo.completed}`}
-        className="btn btn-primary me-2 mb-4"
-      >
-        Update Completed to {todo.completed.toString()}
-      </a>
-
       <textarea
+        onChange={(e) => setTodo({ ...todo, description: e.target.value })}
         value={todo.description}
-        rows={5}
+        className="form-control mb-2"
+      />
+      <input
         onChange={(e) =>
           setTodo({
             ...todo,
-            description: e.target.value,
+            due: e.target.value,
           })
         }
+        value={todo.due}
+        type="date"
         className="form-control mb-2"
       />
-      <a
-        href={`${baseUrl}/${todo.id}/description/${todo.description}`}
-        className="btn btn-primary me-2"
-      >
-        Update Description
-      </a>
+      <label>
+        <input
+          onChange={(e) =>
+            setTodo({
+              ...todo,
+              completed: e.target.checked,
+            })
+          }
+          checked={todo.completed}
+          type="checkbox"
+          className="form-check-input mb-2 me-1"
+        />
+        Completed
+      </label>
+      <button onClick={createTodo} className="btn btn-primary mb-2 w-100">
+        Create Todo
+      </button>
+      <button onClick={updateTodo} className="btn btn-success mb-2 w-100">
+        Update
+      </button>
+      <ul className="list-group">
+        {todos.map((todo) => (
+          <li key={todo.id} className="list-group-item">
+            <button
+              onClick={() => deleteTodo(todo.id)}
+              className="btn btn-danger float-end"
+            >
+              Remove
+            </button>
+            <button
+              onClick={() => fetchTodoById(todo.id)}
+              className="btn btn-warning me-2 float-end"
+            >
+              Edit
+            </button>
+            <input
+              checked={todo.completed}
+              type="checkbox"
+              readOnly
+              className="form-check-input me-1 mb-2"
+            />
+            {todo.title}
+            <p>{todo.description}</p>
+            <p>{todo.due}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
+}
+
+interface Todo {
+  id: number;
+  title: string;
+  description: string;
+  due: string;
+  completed: boolean;
 }
