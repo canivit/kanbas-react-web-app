@@ -9,20 +9,41 @@ import { Assignments } from "./Assignments";
 import { Grades } from "./Grades";
 import { UpdateAssignment } from "./Assignments/UpdateAssignment";
 import { CreateAssignment } from "./Assignments/CreateAssignment";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { API } from "../api";
 
-export function Courses({ courses }: { courses: Course[] }) {
+export function Courses() {
   const params = useParams();
   const courseId = parseInt(params.courseId ? params.courseId : "");
-  const course = courses.find((course) => course._id === courseId);
-  const title = course
-    ? `${course.number} ${course.name}`
-    : "Invalid Course Id";
+  const [course, setCourse] = useState<Course | false>(false);
+
+  async function fetchCourse() {
+    try {
+      const response = await axios.get(`${API}/courses/${courseId}`);
+      setCourse(response.data);
+    } catch (err: unknown) {
+      setCourse(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchCourse();
+  }, [courseId]);
+
+  if (!course) {
+    return (
+      <div className="alert alert-danger mx-5" role="alert">
+        Course not found!
+      </div>
+    );
+  }
 
   return (
     <div className="flex-fill ps-4 pt-4">
       <h3 style={{ color: "red" }}>
         <FontAwesomeIcon icon={faBars} className="me-4" />
-        {title}
+        {`${course.number} ${course.name}`}
         <FontAwesomeIcon icon={faChevronRight} className="mx-3" />
         <CourseNavigationRoutes />
       </h3>

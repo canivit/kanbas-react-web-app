@@ -3,26 +3,40 @@ import { KanbasNavigation } from "./KanbasNavigation";
 import { Dashboard } from "./Dashboard";
 import { Courses } from "./Courses";
 import "./index.css";
-import { Course, db } from "./Database";
-import { useState } from "react";
+import { Course } from "./Database";
+import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import axios from "axios";
+import { API } from "./api";
 
 export function Kanbas() {
-  const [courses, setCourses] = useState(db.courses);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [course, setCourse] = useState(defaultCourse);
 
-  function addCourse(course: Course) {
-    const newCourses = [...courses, { ...course, _id: new Date().getTime() }];
+  async function fetchCourses() {
+    const response = await axios.get(`${API}/courses`);
+    setCourses(response.data);
+  }
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  async function addCourse(course: Course) {
+    const response = await axios.post(`${API}/courses`, course);
+    const newCourses = [...courses, response.data];
     setCourses(newCourses);
   }
 
-  function updateCourse(course: Course) {
+  async function updateCourse(course: Course) {
+    await axios.put(`${API}/courses/${course._id}`, course);
     const newCourses = courses.map((c) => (c._id === course._id ? course : c));
     setCourses(newCourses);
   }
 
-  function deleteCourse(courseId: number) {
+  async function deleteCourse(courseId: number) {
+    await axios.delete(`${API}/courses/${courseId}`);
     const newCourses = courses.filter((c) => c._id !== courseId);
     setCourses(newCourses);
   }
@@ -49,10 +63,7 @@ export function Kanbas() {
                 />
               }
             />
-            <Route
-              path="Courses/:courseId/*"
-              element={<Courses courses={courses} />}
-            />
+            <Route path="Courses/:courseId/*" element={<Courses />} />
           </Routes>
         </div>
       </div>
