@@ -13,6 +13,7 @@ import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteAssignment } from "./assignmentsReducer";
+import * as client from "./../../client/assignment";
 
 export function AssignmentList({ assignments }: { assignments: Assignment[] }) {
   return (
@@ -74,7 +75,8 @@ function DeleteButton({ assignmentId }: { assignmentId: number }) {
   const [modalVisibility, setModalVisibility] = useState(false);
   const dispatch = useDispatch();
 
-  function confirmHandler() {
+  async function confirmHandler() {
+    await client.deleteAssignment(assignmentId);
     dispatch(deleteAssignment(assignmentId));
     setModalVisibility(false);
   }

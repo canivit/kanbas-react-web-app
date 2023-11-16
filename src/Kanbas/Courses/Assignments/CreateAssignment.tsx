@@ -3,6 +3,7 @@ import { addAssignment } from "./assignmentsReducer";
 import { useDispatch } from "react-redux";
 import { AssignmentEditor } from "./AssignmentEditor";
 import { Assignment } from "../../Database";
+import * as client from "./../../client/assignment";
 
 export function CreateAssignment({ courseId }: { courseId: number }) {
   const navigate = useNavigate();
@@ -12,8 +13,9 @@ export function CreateAssignment({ courseId }: { courseId: number }) {
     navigate(`/Kanbas/courses/${courseId}/assignments`);
   }
 
-  function onSaveHandler(assignment: Assignment) {
-    dispatch(addAssignment(assignment));
+  async function onSaveHandler(assignment: Assignment) {
+    const newAssignment = await client.createAssignment(assignment);
+    dispatch(addAssignment(newAssignment));
     navigateBack();
   }
 

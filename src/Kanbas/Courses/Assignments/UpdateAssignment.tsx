@@ -4,6 +4,7 @@ import { KanbasState } from "../../store";
 import { AssignmentEditor } from "./AssignmentEditor";
 import { Assignment } from "../../Database";
 import { updateAssignment } from "./assignmentsReducer";
+import * as client from "./../../client/assignment";
 
 export function UpdateAssignment({ courseId }: { courseId: number }) {
   const dispatch = useDispatch();
@@ -21,8 +22,9 @@ export function UpdateAssignment({ courseId }: { courseId: number }) {
     navigate(`/Kanbas/courses/${courseId}/assignments`);
   }
 
-  function onSaveHandler(assignment: Assignment) {
-    dispatch(updateAssignment(assignment));
+  async function onSaveHandler(assignment: Assignment) {
+    const updatedAssignment = await client.updateAssignment(assignment);
+    dispatch(updateAssignment(updatedAssignment));
     navigateBack();
   }
 

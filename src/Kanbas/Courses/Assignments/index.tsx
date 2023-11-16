@@ -3,13 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical, faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
 import { AssignmentList } from "./AssignmentList";
+import * as client from "./../../client/assignment";
+import { setAssignments } from "./assignmentsReducer";
+import { useEffect } from "react";
 
 export function Assignments() {
   const params = useParams();
+  const dispatch = useDispatch();
   const courseId = parseInt(params.courseId ? params.courseId : "");
+
+  async function fetchAssignments() {
+    const assignments = await client.findAssignmentsOfCourse(courseId);
+    dispatch(setAssignments(assignments));
+  }
+
+  useEffect(() => {
+    fetchAssignments();
+  }, [courseId]);
+
   const assignments = useSelector(
     (state: KanbasState) => state.assignmentsReducer.assignments
   ).filter((a) => a.course === courseId);

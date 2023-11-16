@@ -5,7 +5,7 @@ const initialState: {
   modules: Module[];
   module: Module;
 } = {
-  modules: [defaultModule()],
+  modules: [],
   module: defaultModule(),
 };
 
