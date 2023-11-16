@@ -12,7 +12,7 @@ import {
   updateModule,
 } from "./modulesReducer";
 import { useState } from "react";
-import { createModule, updateModule as updateModuleRequest } from "./client";
+import * as client from "../../client/module";
 
 export function Modules() {
   const dispatch = useDispatch();
@@ -21,11 +21,11 @@ export function Modules() {
   async function submitHandler(module: Module, submitMode: SubmitMode) {
     switch (submitMode) {
       case "add":
-        const newModule = await createModule(module);
+        const newModule = await client.createModule(module);
         dispatch(addModule(newModule));
         break;
       case "update":
-        const updatedModule = await updateModuleRequest(module);
+        const updatedModule = await client.updateModule(module);
         dispatch(updateModule(updatedModule));
         break;
     }

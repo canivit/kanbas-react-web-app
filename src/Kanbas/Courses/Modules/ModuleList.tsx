@@ -6,10 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { deleteModule, setModules } from "./modulesReducer";
 import { useEffect } from "react";
-import {
-  findModulesOfCourse,
-  deleteModule as deleteModuleRequest,
-} from "./client";
+import * as client from "../../client/module";
 
 export function ModuleList({
   editModuleHandler,
@@ -21,7 +18,7 @@ export function ModuleList({
   const courseId = parseInt(params.courseId ? params.courseId : "");
 
   async function fetchModules() {
-    const modules = await findModulesOfCourse(courseId);
+    const modules = await client.findModulesOfCourse(courseId);
     dispatch(setModules(modules));
   }
 
@@ -34,7 +31,7 @@ export function ModuleList({
   );
 
   async function deleteModuleHandler(moduleId: number) {
-    await deleteModuleRequest(moduleId);
+    await client.deleteModule(moduleId);
     dispatch(deleteModule(moduleId));
   }
 
