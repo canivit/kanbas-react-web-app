@@ -4,7 +4,12 @@ import { KanbasState } from "../../store";
 import { Module } from "../../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { deleteModule } from "./modulesReducer";
+import { deleteModule, setModules } from "./modulesReducer";
+import { useEffect } from "react";
+import {
+  findModulesOfCourse,
+  deleteModule as deleteModuleRequest,
+} from "./client";
 
 export function ModuleList({
   editModuleHandler,
@@ -12,11 +17,26 @@ export function ModuleList({
   editModuleHandler: (module: Module) => void;
 }) {
   const params = useParams();
+  const dispatch = useDispatch();
   const courseId = parseInt(params.courseId ? params.courseId : "");
+
+  async function fetchModules() {
+    const modules = await findModulesOfCourse(courseId);
+    dispatch(setModules(modules));
+  }
+
+  useEffect(() => {
+    fetchModules();
+  }, [courseId]);
+
   const modules = useSelector(
     (state: KanbasState) => state.modulesReducer.modules
   );
-  const dispatch = useDispatch();
+
+  async function deleteModuleHandler(moduleId: number) {
+    await deleteModuleRequest(moduleId);
+    dispatch(deleteModule(moduleId));
+  }
 
   return (
     <ul className="list-group">
@@ -43,7 +63,7 @@ export function ModuleList({
                 <FontAwesomeIcon
                   icon={faTrashCan}
                   size="lg"
-                  onClick={() => dispatch(deleteModule(module._id))}
+                  onClick={() => deleteModuleHandler(module._id)}
                   style={{ cursor: "pointer", color: "red" }}
                 />
               </div>
