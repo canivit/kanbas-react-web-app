@@ -1,7 +1,7 @@
 import axios from "axios";
-import { COURSES_URL } from "./course";
+import { API_BASE, COURSES_URL } from "./course";
 
-const ASSIGNMENTS_URL = "http://localhost:4000/api/assignments";
+const ASSIGNMENTS_URL = `${API_BASE}/assignments`;
 
 export type Assignment = {
   _id: number;

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { COURSES_URL } from "./course";
+import { API_BASE, COURSES_URL } from "./course";
 
-const MODULES_URL = "http://localhost:4000/api/modules";
+const MODULES_URL = `${API_BASE}/modules`;
 
 export type Module = {
   _id: number;

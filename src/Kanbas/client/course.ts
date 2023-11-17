@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const COURSES_URL = "http://localhost:4000/api/courses";
+export const API_BASE = process.env.REACT_APP_API_BASE;
+export const COURSES_URL = `${API_BASE}/courses`;
 
 export type Course = {
   _id: number;

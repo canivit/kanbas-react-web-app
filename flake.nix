@@ -16,6 +16,7 @@
         buildInputs = with pkgs; [
           nodejs_18
         ];
+        REACT_APP_API_BASE = "http://localhost:4000/api";
         shellHook = ''
           export PATH=$PWD/src/frontend/node_modules/.bin:$PATH
         '';
