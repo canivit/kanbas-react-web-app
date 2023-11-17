@@ -10,8 +10,7 @@ import { Grades } from "./Grades";
 import { UpdateAssignment } from "./Assignments/UpdateAssignment";
 import { CreateAssignment } from "./Assignments/CreateAssignment";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { API } from "../api";
+import * as client from "./../client/course";
 
 export function Courses() {
   const params = useParams();
@@ -20,8 +19,8 @@ export function Courses() {
 
   async function fetchCourse() {
     try {
-      const response = await axios.get(`${API}/courses/${courseId}`);
-      setCourse(response.data);
+      const fetchedCourse = await client.getCourseById(courseId);
+      setCourse(fetchedCourse);
     } catch (err: unknown) {
       setCourse(false);
     }

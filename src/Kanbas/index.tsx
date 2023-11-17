@@ -7,16 +7,15 @@ import { Course } from "./Database";
 import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import axios from "axios";
-import { API } from "./api";
+import * as client from "./client/course";
 
 export function Kanbas() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [course, setCourse] = useState(defaultCourse);
 
   async function fetchCourses() {
-    const response = await axios.get(`${API}/courses`);
-    setCourses(response.data);
+    const allCourses = await client.getCourses();
+    setCourses(allCourses);
   }
 
   useEffect(() => {
@@ -24,19 +23,21 @@ export function Kanbas() {
   }, []);
 
   async function addCourse(course: Course) {
-    const response = await axios.post(`${API}/courses`, course);
-    const newCourses = [...courses, response.data];
+    const newCourse = await client.createCourse(course);
+    const newCourses = [...courses, newCourse];
     setCourses(newCourses);
   }
 
   async function updateCourse(course: Course) {
-    await axios.put(`${API}/courses/${course._id}`, course);
-    const newCourses = courses.map((c) => (c._id === course._id ? course : c));
+    const updatedCourse = await client.updateCourse(course);
+    const newCourses = courses.map((c) =>
+      c._id === updatedCourse._id ? updatedCourse : c
+    );
     setCourses(newCourses);
   }
 
   async function deleteCourse(courseId: number) {
-    await axios.delete(`${API}/courses/${courseId}`);
+    await client.deleteCourse(courseId);
     const newCourses = courses.filter((c) => c._id !== courseId);
     setCourses(newCourses);
   }

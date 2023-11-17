@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Assignment } from "../Database";
+import { COURSES_URL } from "./course";
 
-const COURSES_URL = "http://localhost:4000/api/courses";
 const ASSIGNMENTS_URL = "http://localhost:4000/api/assignments";
 
 export async function findAssignmentsOfCourse(
