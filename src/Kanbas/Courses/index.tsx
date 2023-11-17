@@ -1,16 +1,15 @@
 import { Navigate, Route, Routes, useParams } from "react-router";
-import { Course } from "../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { CourseNavigation, courseNavigationItems } from "./CourseNavigation";
 import { Modules } from "./Modules";
 import { Home } from "./Home";
 import { Assignments } from "./Assignments";
-import { Grades } from "./Grades";
 import { UpdateAssignment } from "./Assignments/UpdateAssignment";
 import { CreateAssignment } from "./Assignments/CreateAssignment";
 import { useEffect, useState } from "react";
 import * as client from "./../client/course";
+import { Course } from "./../client/course";
 
 export function Courses() {
   const params = useParams();
@@ -90,14 +89,6 @@ export function Courses() {
             element={
               <div className="col-8">
                 <CreateAssignment courseId={courseId} />
-              </div>
-            }
-          />
-          <Route
-            path="Grades"
-            element={
-              <div className="col-8">
-                <Grades />
               </div>
             }
           />

@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Course } from "../Database";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import "./CourseCard.css";
 import { Link } from "react-router-dom";
+import { Course } from "../client/course";
 
 export function CourseCard({
   course,

@@ -2,8 +2,8 @@ import { useNavigate } from "react-router";
 import { addAssignment } from "./assignmentsReducer";
 import { useDispatch } from "react-redux";
 import { AssignmentEditor } from "./AssignmentEditor";
-import { Assignment } from "../../Database";
 import * as client from "./../../client/assignment";
+import { Assignment } from "./../../client/assignment";
 
 export function CreateAssignment({ courseId }: { courseId: number }) {
   const navigate = useNavigate();

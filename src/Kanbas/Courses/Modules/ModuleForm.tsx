@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
 import { useParams } from "react-router";
-import { Module } from "../../Database";
 import { setModule } from "./modulesReducer";
+import { Module } from "../../client/module";
 
 export function ModuleForm({
   submitMode,

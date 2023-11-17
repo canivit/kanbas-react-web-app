@@ -3,11 +3,11 @@ import { KanbasNavigation } from "./KanbasNavigation";
 import { Dashboard } from "./Dashboard";
 import { Courses } from "./Courses";
 import "./index.css";
-import { Course } from "./Database";
 import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import * as client from "./client/course";
+import { Course } from "./client/course";
 
 export function Kanbas() {
   const [courses, setCourses] = useState<Course[]>([]);

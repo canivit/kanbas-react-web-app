@@ -1,12 +1,12 @@
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
-import { Module } from "../../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { deleteModule, setModules } from "./modulesReducer";
 import { useEffect } from "react";
 import * as client from "../../client/module";
+import { Module } from "../../client/module";
 
 export function ModuleList({
   editModuleHandler,

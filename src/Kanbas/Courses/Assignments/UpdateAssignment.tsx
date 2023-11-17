@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { KanbasState } from "../../store";
 import { AssignmentEditor } from "./AssignmentEditor";
-import { Assignment } from "../../Database";
 import { updateAssignment } from "./assignmentsReducer";
 import * as client from "./../../client/assignment";
+import { Assignment } from "./../../client/assignment";
 
 export function UpdateAssignment({ courseId }: { courseId: number }) {
   const dispatch = useDispatch();

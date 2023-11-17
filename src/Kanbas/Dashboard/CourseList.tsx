@@ -1,4 +1,4 @@
-import { Course } from "../Database";
+import { Course } from "../client/course";
 import { CourseCard } from "./CourseCard";
 
 export function CourseList({

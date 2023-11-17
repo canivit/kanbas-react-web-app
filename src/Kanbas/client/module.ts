@@ -1,8 +1,14 @@
 import axios from "axios";
-import { Module } from "../Database";
 import { COURSES_URL } from "./course";
 
 const MODULES_URL = "http://localhost:4000/api/modules";
+
+export type Module = {
+  _id: number;
+  name: string;
+  description: string;
+  course: number;
+};
 
 export async function findModulesOfCourse(courseId: number): Promise<Module[]> {
   const response = await axios.get(`${COURSES_URL}/${courseId}/modules`);

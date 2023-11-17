@@ -1,10 +1,10 @@
-import { Assignment } from "../../Database";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
   faEllipsisVertical,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { Assignment } from "../../client/assignment";
 
 export function AssignmentEditor({
   assignment,

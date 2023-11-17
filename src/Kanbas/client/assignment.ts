@@ -1,8 +1,13 @@
 import axios from "axios";
-import { Assignment } from "../Database";
 import { COURSES_URL } from "./course";
 
 const ASSIGNMENTS_URL = "http://localhost:4000/api/assignments";
+
+export type Assignment = {
+  _id: number;
+  title: string;
+  course: number;
+};
 
 export async function findAssignmentsOfCourse(
   courseId: number

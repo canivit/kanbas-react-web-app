@@ -1,7 +1,14 @@
 import axios from "axios";
-import { Course } from "../Database";
 
 export const COURSES_URL = "http://localhost:4000/api/courses";
+
+export type Course = {
+  _id: number;
+  number: string;
+  name: string;
+  startDate: string;
+  endDate: string;
+};
 
 export async function getCourses(): Promise<Course[]> {
   const response = await axios.get(COURSES_URL);

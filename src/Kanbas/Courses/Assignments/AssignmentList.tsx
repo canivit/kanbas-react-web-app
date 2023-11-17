@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Assignment } from "../../Database";
 import {
   faCircleCheck,
   faEllipsisVertical,
@@ -14,6 +13,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteAssignment } from "./assignmentsReducer";
 import * as client from "./../../client/assignment";
+import { Assignment } from "./../../client/assignment";
 
 export function AssignmentList({ assignments }: { assignments: Assignment[] }) {
   return (

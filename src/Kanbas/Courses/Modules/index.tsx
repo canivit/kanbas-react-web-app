@@ -3,7 +3,6 @@ import { ModuleList } from "./ModuleList";
 import { faEllipsisVertical, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import { ModuleForm, SubmitMode } from "./ModuleForm";
-import { Module } from "../../Database";
 import { useDispatch } from "react-redux";
 import {
   addModule,
@@ -13,6 +12,7 @@ import {
 } from "./modulesReducer";
 import { useState } from "react";
 import * as client from "../../client/module";
+import { Module } from "../../client/module";
 
 export function Modules() {
   const dispatch = useDispatch();

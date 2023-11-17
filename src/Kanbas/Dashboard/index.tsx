@@ -1,7 +1,7 @@
-import { Course } from "../Database";
 import { CourseForm, SubmitMode } from "./CourseForm";
 import { useState } from "react";
 import { CourseList } from "./CourseList";
+import { Course } from "../client/course";
 
 export function Dashboard({
   courses,
