@@ -85,11 +85,20 @@ function AssignmentEditForm({
         </div>
 
         <form className="d-flex gap-2">
-          <button onClick={onCancelHandler} className="btn wd-button">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              onCancelHandler();
+            }}
+            className="btn wd-button"
+          >
             Cancel
           </button>
           <button
-            onClick={() => onSaveHandler(assignment)}
+            onClick={(e) => {
+              e.preventDefault();
+              onSaveHandler(assignment);
+            }}
             className="btn wd-button wd-button-red"
           >
             Save
