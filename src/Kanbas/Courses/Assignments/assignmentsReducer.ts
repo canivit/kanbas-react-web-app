@@ -26,10 +26,7 @@ const assignmentsSlice = createSlice({
   initialState,
   reducers: {
     addAssignment: (state, action: AddAction) => {
-      const newAssignments = [
-        ...state.assignments,
-        { ...action.payload, _id: new Date().getTime() },
-      ];
+      const newAssignments = [...state.assignments, action.payload];
       state.assignments = newAssignments;
     },
     deleteAssignment: (state, action: DeleteAction) => {
