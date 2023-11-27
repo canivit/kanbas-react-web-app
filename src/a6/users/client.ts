@@ -17,6 +17,11 @@ export async function updateUser(user: User): Promise<void> {
   await axios.post(`${USERS_API}/${user._id}`, user);
 }
 
+export async function findAllUsers(): Promise<User[]> {
+  const response = await axios.get(`${USERS_API}`);
+  return response.data;
+}
+
 export type Credentials = {
   username: string;
   password: string;

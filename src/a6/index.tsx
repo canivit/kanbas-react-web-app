@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router";
 import { Signin } from "./users/Signin";
 import { Navigation } from "./Navigation";
 import { Account } from "./users/Account";
+import { AllUsers } from "./users/AllUsers";
 
 export function A6() {
   return (
@@ -13,6 +14,7 @@ export function A6() {
             <Route path="/" element={<Navigate to="signin" />} />
             <Route path="signin" element={<Signin />} />
             <Route path="account" element={<Account />} />
+            <Route path="admin/users" element={<AllUsers />} />
           </Routes>
         </div>
       </div>

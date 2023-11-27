@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as client from "./client";
+import { Link } from "react-router-dom";
 
 export function Account() {
   const [user, setUser] = useState<client.User | false>(false);
@@ -190,6 +191,9 @@ function AccountForm({
       >
         Save
       </button>
+      <Link to="../admin/users" className="btn btn-warning mb-3 float-end">
+        Show All Users
+      </Link>
       <UpdateAlert updateResult={updateResult} />
     </form>
   );
