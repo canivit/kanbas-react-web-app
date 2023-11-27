@@ -8,6 +8,11 @@ export async function signin(credentials: Credentials): Promise<User> {
   return response.data;
 }
 
+export async function getAccount(): Promise<User> {
+  const response = await axios.get(`${USERS_API}/account`);
+  return response.data;
+}
+
 export type Credentials = {
   username: string;
   password: string;
@@ -19,6 +24,6 @@ export type User = {
   firstName?: string;
   email?: string;
   lastName?: string;
-  dob?: Date;
+  dob?: string;
   role?: "STUDENT" | "FACULTY" | "ADMIN" | "USER";
 };

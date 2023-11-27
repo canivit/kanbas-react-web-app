@@ -7,59 +7,81 @@ export function Signin() {
     username: "",
     password: "",
   });
+  const [attempt, setAttempt] = useState<Attempt>("NoAttempt");
   const navigate = useNavigate();
-  const signin = async () => {
-    await client.signin(credentials);
-    navigate("/a6/account");
-  };
+  async function signin() {
+    try {
+      await client.signin(credentials);
+      navigate("../account");
+    } catch {
+      setCredentials({ username: "", password: "" });
+      setAttempt("InvalidAttempt");
+    }
+  }
   return (
-    <div className="container mt-3 w-50">
-      <form>
-        <div className="mb-3">
-          <label className="form-label" htmlFor="usernameInput">
-            Username
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="usernameInput"
-            placeholder="Username"
-            onChange={(e) => {
-              setCredentials({
-                ...credentials,
-                username: e.target.value,
-              });
-            }}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label" htmlFor="passwordInput">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="passwordInput"
-            placeholder="Password"
-            onChange={(e) => {
-              setCredentials({
-                ...credentials,
-                password: e.target.value,
-              });
-            }}
-          />
-        </div>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={(e) => {
-            e.preventDefault();
-            signin();
+    <form>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="usernameInput">
+          Username
+        </label>
+        <input
+          value={credentials.username}
+          type="text"
+          className="form-control"
+          id="usernameInput"
+          placeholder="Username"
+          onChange={(e) => {
+            setCredentials({
+              ...credentials,
+              username: e.target.value,
+            });
+            setAttempt("NoAttempt");
           }}
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+        />
+      </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="passwordInput">
+          Password
+        </label>
+        <input
+          value={credentials.password}
+          type="password"
+          className="form-control"
+          id="passwordInput"
+          placeholder="Password"
+          onChange={(e) => {
+            setCredentials({
+              ...credentials,
+              password: e.target.value,
+            });
+            setAttempt("NoAttempt");
+          }}
+        />
+      </div>
+      <button
+        type="button"
+        className="btn btn-primary mb-3"
+        onClick={(e) => {
+          e.preventDefault();
+          signin();
+        }}
+      >
+        Submit
+      </button>
+      <Alert attempt={attempt} />
+    </form>
   );
 }
+
+function Alert({ attempt }: { attempt: Attempt }) {
+  if (attempt === "InvalidAttempt") {
+    return (
+      <div className="alert alert-danger" role="alert">
+        Invalid username or password
+      </div>
+    );
+  }
+  return <></>;
+}
+
+type Attempt = "NoAttempt" | "InvalidAttempt";
