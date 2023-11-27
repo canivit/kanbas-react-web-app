@@ -13,12 +13,17 @@ export async function getAccount(): Promise<User> {
   return response.data;
 }
 
+export async function updateUser(user: User): Promise<void> {
+  await axios.post(`${USERS_API}/${user._id}`, user);
+}
+
 export type Credentials = {
   username: string;
   password: string;
 };
 
 export type User = {
+  _id: string;
   username: string;
   password: string;
   firstName?: string;

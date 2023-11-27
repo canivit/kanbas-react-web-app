@@ -3,6 +3,7 @@ import * as client from "./client";
 
 export function Account() {
   const [user, setUser] = useState<client.User | false>(false);
+  const [updateResult, setUpdateResult] = useState<UpdateResult>("NoAttempt");
 
   async function getAccount() {
     try {
@@ -20,12 +21,21 @@ export function Account() {
   return (
     <>
       <h1 className="mb-4">Account</h1>
-      {user ? <AccountForm user={user} setUser={setUser} /> : <Alert />}
+      {user ? (
+        <AccountForm
+          user={user}
+          setUser={setUser}
+          updateResult={updateResult}
+          setUpdateResult={setUpdateResult}
+        />
+      ) : (
+        <SigninAlert />
+      )}
     </>
   );
 }
 
-function Alert() {
+function SigninAlert() {
   return (
     <div className="alert alert-danger" role="alert">
       Not signed in!
@@ -36,10 +46,23 @@ function Alert() {
 function AccountForm({
   user,
   setUser,
+  updateResult,
+  setUpdateResult,
 }: {
   user: client.User;
   setUser: (user: client.User) => void;
+  updateResult: UpdateResult;
+  setUpdateResult: (updateResult: UpdateResult) => void;
 }) {
+  async function updateUser(user: client.User) {
+    try {
+      await client.updateUser(user);
+      setUpdateResult("Success");
+    } catch {
+      setUpdateResult("Failure");
+    }
+  }
+
   return (
     <form>
       <div className="mb-3">
@@ -57,6 +80,7 @@ function AccountForm({
               ...user,
               username: e.target.value,
             });
+            setUpdateResult("NoAttempt");
           }}
         />
       </div>
@@ -75,6 +99,7 @@ function AccountForm({
               ...user,
               password: e.target.value,
             });
+            setUpdateResult("NoAttempt");
           }}
         />
       </div>
@@ -93,6 +118,7 @@ function AccountForm({
               ...user,
               firstName: e.target.value,
             });
+            setUpdateResult("NoAttempt");
           }}
         />
       </div>
@@ -111,6 +137,7 @@ function AccountForm({
               ...user,
               lastName: e.target.value,
             });
+            setUpdateResult("NoAttempt");
           }}
         />
       </div>
@@ -129,6 +156,7 @@ function AccountForm({
               ...user,
               email: e.target.value,
             });
+            setUpdateResult("NoAttempt");
           }}
         />
       </div>
@@ -147,9 +175,43 @@ function AccountForm({
               ...user,
               dob: e.target.value,
             });
+            setUpdateResult("NoAttempt");
           }}
         />
       </div>
+
+      <button
+        type="button"
+        className="btn btn-primary mb-3"
+        onClick={(e) => {
+          e.preventDefault();
+          updateUser(user);
+        }}
+      >
+        Save
+      </button>
+      <UpdateAlert updateResult={updateResult} />
     </form>
   );
 }
+
+function UpdateAlert({ updateResult }: { updateResult: UpdateResult }) {
+  switch (updateResult) {
+    case "Success":
+      return (
+        <div className="alert alert-success" role="alert">
+          Update successful!
+        </div>
+      );
+    case "Failure":
+      return (
+        <div className="alert alert-danger" role="alert">
+          Update failed!
+        </div>
+      );
+    case "NoAttempt":
+      return <></>;
+  }
+}
+
+type UpdateResult = "Success" | "Failure" | "NoAttempt";
