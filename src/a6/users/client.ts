@@ -27,6 +27,11 @@ export async function createUser(user: User): Promise<User> {
   return response.data;
 }
 
+export async function findUserById(id: string) {
+  const response = await axios.get(`${USERS_API}/${id}`);
+  return response.data;
+};
+
 export type Credentials = {
   username: string;
   password: string;

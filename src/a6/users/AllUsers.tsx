@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import * as client from "./client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 export function AllUsers() {
   const [users, setUsers] = useState<client.User[]>([]);
@@ -10,54 +12,106 @@ export function AllUsers() {
     firstName: "",
     lastName: "",
   });
+  const [submitMode, setSubmitMode] = useState<SubmitMode>("Create");
 
-  const fetchUsers = async () => {
-    const users = await client.findAllUsers();
-    setUsers(users);
-  };
   useEffect(() => {
     fetchUsers();
   }, []);
 
-  async function createUser(user: client.User) {
+  function resetUser() {
+    setUser({
+      _id: "",
+      username: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      dob: "",
+      role: "USER",
+    });
+  }
+
+  async function fetchUser(id: string) {
     try {
-      const newUser = await client.createUser(user);
-      setUsers([...users, newUser]);
-      setUser({
-        _id: "",
-        username: "",
-        password: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        dob: "",
-        role: "USER",
-      });
+      const user = await client.findUserById(id);
+      setUser(user);
+      setSubmitMode("Update");
     } catch (e) {
       console.log(e);
     }
   }
 
+  async function fetchUsers() {
+    const users = await client.findAllUsers();
+    setUsers(users);
+  }
+
+  async function createUser(user: client.User) {
+    try {
+      const newUser = await client.createUser(user);
+      setUsers([...users, newUser]);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async function updateUser(user: client.User) {
+    try {
+      await client.updateUser(user);
+      setUsers(users.map((u) => (u._id === user._id ? user : u)));
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async function submit() {
+    switch (submitMode) {
+      case "Create":
+        await createUser(user);
+        break;
+      case "Update":
+        await updateUser(user);
+        break;
+    }
+    resetUser();
+    setSubmitMode("Create");
+  }
+
+  function cancel() {
+    resetUser();
+    setSubmitMode("Create");
+  }
+
   return (
     <div>
-      <NewUserForm user={user} setUser={setUser} createUser={createUser} />
-      <UserList users={users} />
+      <UserForm
+        user={user}
+        setUser={setUser}
+        submit={submit}
+        cancel={cancel}
+        submitMode={submitMode}
+      />
+      <UserList users={users} fetchUser={fetchUser} />
     </div>
   );
 }
 
-function NewUserForm({
+function UserForm({
   user,
   setUser,
-  createUser,
+  submit,
+  cancel,
+  submitMode,
 }: {
   user: client.User;
   setUser: (user: client.User) => void;
-  createUser: (user: client.User) => void;
+  submit: (user: client.User) => void;
+  cancel: () => void;
+  submitMode: SubmitMode;
 }) {
   return (
     <div className="mb-5">
-      <h2>Add User</h2>
+      <h2>{submitMode} User</h2>
       <form>
         <div className="row g-4 mb-4">
           <div className="col">
@@ -140,7 +194,7 @@ function NewUserForm({
               type="date"
               className="form-control"
               id="dobInput"
-              value={user.dob}
+              value={user.dob?.split("T")[0]}
               onChange={(e) => {
                 setUser({ ...user, dob: e.target.value });
               }}
@@ -176,13 +230,23 @@ function NewUserForm({
         </div>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary me-2"
           onClick={(e) => {
             e.preventDefault();
-            createUser(user);
+            submit(user);
           }}
         >
-          Create User
+          {submitMode}
+        </button>
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={(e) => {
+            e.preventDefault();
+            cancel();
+          }}
+        >
+          Cancel
         </button>
       </form>
       <hr />
@@ -190,7 +254,13 @@ function NewUserForm({
   );
 }
 
-function UserList({ users }: { users: client.User[] }) {
+function UserList({
+  users,
+  fetchUser,
+}: {
+  users: client.User[];
+  fetchUser: (id: string) => void;
+}) {
   return (
     <div>
       <h2>User List</h2>
@@ -208,6 +278,15 @@ function UserList({ users }: { users: client.User[] }) {
               <td>{user.username}</td>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
+              <td>
+                <button
+                  type="button"
+                  className="btn btn-warning"
+                  onClick={() => fetchUser(user._id)}
+                >
+                  <FontAwesomeIcon icon={faPencil} size="lg" />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -215,3 +294,5 @@ function UserList({ users }: { users: client.User[] }) {
     </div>
   );
 }
+
+type SubmitMode = "Create" | "Update";
