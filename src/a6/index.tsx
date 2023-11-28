@@ -9,7 +9,7 @@ export function A6() {
     <div className="container d-flex mt-4">
       <Navigation />
       <div className="flex-fill">
-        <div className="container w-50">
+        <div className="container ms-5">
           <Routes>
             <Route path="/" element={<Navigate to="signin" />} />
             <Route path="signin" element={<Signin />} />

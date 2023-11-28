@@ -22,6 +22,11 @@ export async function findAllUsers(): Promise<User[]> {
   return response.data;
 }
 
+export async function createUser(user: User): Promise<User> {
+  const response = await axios.put(`${USERS_API}`, user);
+  return response.data;
+}
+
 export type Credentials = {
   username: string;
   password: string;
@@ -32,8 +37,8 @@ export type User = {
   username: string;
   password: string;
   firstName?: string;
-  email?: string;
   lastName?: string;
+  email?: string;
   dob?: string;
   role?: "STUDENT" | "FACULTY" | "ADMIN" | "USER";
 };
