@@ -180,6 +180,33 @@ function AccountForm({
           }}
         />
       </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="roleInput">
+          Role
+        </label>
+        <select
+          value={user.role}
+          className="form-select"
+          onChange={(e) => {
+            if (
+              e.target.value === "USER" ||
+              e.target.value === "ADMIN" ||
+              e.target.value === "FACULTY" ||
+              e.target.value === "STUDENT"
+            ) {
+              setUser({
+                ...user,
+                role: e.target.value,
+              });
+            }
+          }}
+        >
+          <option value="USER">User</option>
+          <option value="ADMIN">Admin</option>
+          <option value="FACULTY">Faculty</option>
+          <option value="STUDENT">Student</option>
+        </select>
+      </div>
 
       <button
         type="button"
