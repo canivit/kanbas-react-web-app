@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import * as client from "./client";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Account() {
   const [user, setUser] = useState<client.User | false>(false);
   const [updateResult, setUpdateResult] = useState<UpdateResult>("NoAttempt");
+  const navigate = useNavigate();
 
   async function getAccount() {
     try {
@@ -12,6 +13,15 @@ export function Account() {
       setUser(user);
     } catch {
       setUser(false);
+    }
+  }
+
+  async function signout() {
+    try {
+      await client.signout();
+      navigate("../signin");
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -28,6 +38,7 @@ export function Account() {
           setUser={setUser}
           updateResult={updateResult}
           setUpdateResult={setUpdateResult}
+          signout={signout}
         />
       ) : (
         <SigninAlert />
@@ -49,11 +60,13 @@ function AccountForm({
   setUser,
   updateResult,
   setUpdateResult,
+  signout,
 }: {
   user: client.User;
   setUser: (user: client.User) => void;
   updateResult: UpdateResult;
   setUpdateResult: (updateResult: UpdateResult) => void;
+  signout: () => void;
 }) {
   async function updateUser(user: client.User) {
     try {
@@ -210,7 +223,7 @@ function AccountForm({
 
       <button
         type="button"
-        className="btn btn-primary mb-3"
+        className="btn btn-primary mb-3 me-2"
         onClick={(e) => {
           e.preventDefault();
           updateUser(user);
@@ -218,6 +231,17 @@ function AccountForm({
       >
         Save
       </button>
+      <button
+        type="button"
+        className="btn btn-danger mb-3"
+        onClick={(e) => {
+          e.preventDefault();
+          signout();
+        }}
+      >
+        Signout
+      </button>
+
       <Link to="../admin/users" className="btn btn-warning mb-3 float-end">
         Show All Users
       </Link>

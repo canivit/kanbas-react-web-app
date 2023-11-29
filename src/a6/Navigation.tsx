@@ -34,6 +34,7 @@ export function Navigation() {
     <ul className="list-group">
       {navigationItems.map((item) => (
         <NavigationItem
+          key={item.text}
           text={item.text}
           route={item.route}
           isActive={pathname.includes(item.route)}

@@ -36,6 +36,15 @@ export async function deleteUser(id: string): Promise<void> {
   await axios.delete(`${USERS_API}/${id}`);
 }
 
+export async function signup(credentials: Credentials): Promise<User> {
+  const response = await axios.post(`${USERS_API}/signup`, credentials);
+  return response.data;
+}
+
+export async function signout(): Promise<void> {
+  await axios.get(`${USERS_API}/signout`);
+}
+
 export type Credentials = {
   username: string;
   password: string;

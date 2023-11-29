@@ -3,6 +3,7 @@ import { Signin } from "./users/Signin";
 import { Navigation } from "./Navigation";
 import { Account } from "./users/Account";
 import { AllUsers } from "./users/AllUsers";
+import { Signup } from "./users/Signup";
 
 export function A6() {
   return (
@@ -13,6 +14,7 @@ export function A6() {
           <Routes>
             <Route path="/" element={<Navigate to="signin" />} />
             <Route path="signin" element={<Signin />} />
+            <Route path="signup" element={<Signup />} />
             <Route path="account" element={<Account />} />
             <Route path="admin/users" element={<AllUsers />} />
           </Routes>
