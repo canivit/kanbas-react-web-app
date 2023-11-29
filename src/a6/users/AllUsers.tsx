@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as client from "./client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 export function AllUsers() {
   const [users, setUsers] = useState<client.User[]>([]);
@@ -64,6 +64,15 @@ export function AllUsers() {
     }
   }
 
+  async function deleteUser(id: string) {
+    try {
+      await client.deleteUser(id);
+      setUsers(users.filter((u) => u._id !== id));
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async function submit() {
     switch (submitMode) {
       case "Create":
@@ -91,7 +100,7 @@ export function AllUsers() {
         cancel={cancel}
         submitMode={submitMode}
       />
-      <UserList users={users} fetchUser={fetchUser} />
+      <UserList users={users} fetchUser={fetchUser} deleteUser={deleteUser} />
     </div>
   );
 }
@@ -257,9 +266,11 @@ function UserForm({
 function UserList({
   users,
   fetchUser,
+  deleteUser,
 }: {
   users: client.User[];
   fetchUser: (id: string) => void;
+  deleteUser: (id: string) => void;
 }) {
   return (
     <div>
@@ -281,10 +292,17 @@ function UserList({
               <td>
                 <button
                   type="button"
-                  className="btn btn-warning"
+                  className="btn btn-warning me-2"
                   onClick={() => fetchUser(user._id)}
                 >
                   <FontAwesomeIcon icon={faPencil} size="lg" />
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => deleteUser(user._id)}
+                >
+                  <FontAwesomeIcon icon={faTrashCan} size="lg" />
                 </button>
               </td>
             </tr>

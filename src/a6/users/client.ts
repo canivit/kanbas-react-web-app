@@ -30,7 +30,11 @@ export async function createUser(user: User): Promise<User> {
 export async function findUserById(id: string) {
   const response = await axios.get(`${USERS_API}/${id}`);
   return response.data;
-};
+}
+
+export async function deleteUser(id: string): Promise<void> {
+  await axios.delete(`${USERS_API}/${id}`);
+}
 
 export type Credentials = {
   username: string;
